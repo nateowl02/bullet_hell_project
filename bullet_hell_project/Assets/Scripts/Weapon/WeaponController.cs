@@ -16,6 +16,7 @@ public class WeaponController : MonoBehaviour
     public float endSpeed;
     public float offset;
     public float initialDelay;
+    public string targetTag;
 
     [Space]
     [Header("Weapon Modes")]
@@ -80,7 +81,7 @@ public class WeaponController : MonoBehaviour
         if (weaponMode == WeaponModes.Directed)
         {
             Vector3 v = new Vector3();
-            bool isFound = weapon.GetObjectPosition(ref v, "Enemy");
+            bool isFound = weapon.GetObjectPosition(ref v, targetTag);
 
             for (int i = 0; i < secondaryTurretCount; i++)
             {

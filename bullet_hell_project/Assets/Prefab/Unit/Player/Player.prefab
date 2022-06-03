@@ -61,16 +61,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 3
-  secondaryTurretCount: 2
+  secondaryTurretCount: 4
   primaryRateOfFire: 1
-  secondaryRateOfFire: 0.2
+  secondaryRateOfFire: 0.1
   spread: 5
   startSpeed: 10
   endSpeed: 10
-  offset: 0.5
+  offset: 0.25
   initialDelay: 0
+  targetTag: 
   isInverted: 0
-  weaponMode: 2
+  weaponMode: 1
 --- !u!1 &965296388866193974
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 1
   healthCurrent: 0
-  speed: 3
+  speed: 5
   isDestructible: 1
   collisionDamageTag: Enemy
   collisionDamage: 1
