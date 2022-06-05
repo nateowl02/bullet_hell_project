@@ -266,7 +266,7 @@ MonoBehaviour:
   secondaryTurretCount: 1
   primaryRateOfFire: 0.5
   secondaryRateOfFire: 0.1
-  spread: 180
+  spread: 120
   startSpeed: 3
   endSpeed: 3
   offset: 0

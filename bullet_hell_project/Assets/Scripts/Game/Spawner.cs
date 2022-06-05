@@ -15,11 +15,10 @@ public class Spawner : MonoBehaviour
 
     [Space]
     public int[] enemyCountFodder;
-    public int[] enemyCountMain;
-    public int[] enemyCountBoss;
-
     public EnemyTypes[] enemyTypeFodder;
+    public int[] enemyCountMain;
     public EnemyTypes[] enemyTypeMain;
+    public int[] enemyCountBoss;
     public EnemyTypes[] enemyTypeBoss;
 
     Spawnable spawnable;
@@ -95,6 +94,17 @@ public class Spawner : MonoBehaviour
                 SpawnEmitter();
                 break;
 
+            case EnemyTypes.splitter:
+                SpawnSplitter();
+                break;
+
+            case EnemyTypes.pulser:
+                SpawnPulser();
+                break;
+
+            case EnemyTypes.warper:
+                SpawnWarper();
+                break;
         }
     }
 
@@ -106,5 +116,31 @@ public class Spawner : MonoBehaviour
         Vector3 v = new Vector3(xSpawn, UnityEngine.Random.Range(GameRules.screenHeight / 2, GameRules.screenHeight - 1), 0);
 
         Instantiate(spawnable.emitter, v, Quaternion.identity);
+    }
+
+    void SpawnSplitter()
+    {
+        float xSpawn = UnityEngine.Random.Range(-GameRules.screenWidth, GameRules.screenWidth);
+        Vector3 v = new Vector3(xSpawn, GameRules.screenHeight, 0);
+
+        Instantiate(spawnable.splitter, v, Quaternion.identity);
+    }
+
+    void SpawnPulser()
+    {
+        float xSpawn = UnityEngine.Random.Range(-GameRules.screenWidth / 2, GameRules.screenWidth / 2);
+        Vector3 v = new Vector3(xSpawn, GameRules.screenHeight, 0);
+
+        Instantiate(spawnable.pulser, v, Quaternion.identity);
+    }
+
+    void SpawnWarper()
+    {
+        int rnd = UnityEngine.Random.Range(0, 2);
+
+        float xSpawn = rnd == 0 ? -GameRules.screenWidth : GameRules.screenWidth;
+        Vector3 v = new Vector3(xSpawn, UnityEngine.Random.Range(GameRules.screenHeight / 2, GameRules.screenHeight), 0);
+
+        Instantiate(spawnable.warper, v, Quaternion.identity);
     }
 }

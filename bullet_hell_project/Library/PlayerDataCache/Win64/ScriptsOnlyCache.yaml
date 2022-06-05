@@ -1,12 +1,17 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - DirectionalWeapon
+    - Barrage
+    - ClampUnit
     - Player
     - PlayerController
     - Projectile
+    - Spawnable
+    - Spawner
     - Unit
+    - UnitBehavior
     - Weapon
+    - WeaponController
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -26,6 +31,12 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
   sceneClasses:
     Assets/Scenes/game_scene.unity:
     - Class: 1
@@ -40,22 +51,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1504}
+      Script: {instanceID: 1516}
     - Class: 114
-      Script: {instanceID: 3068}
+      Script: {instanceID: 1848}
     - Class: 114
-      Script: {instanceID: 3130}
+      Script: {instanceID: 2168}
     - Class: 114
-      Script: {instanceID: 3214}
+      Script: {instanceID: 2310}
     - Class: 114
-      Script: {instanceID: 17430}
+      Script: {instanceID: 2686}
     - Class: 114
-      Script: {instanceID: 17652}
+      Script: {instanceID: 2858}
+    - Class: 114
+      Script: {instanceID: 2930}
+    - Class: 114
+      Script: {instanceID: 3066}
+    - Class: 114
+      Script: {instanceID: 3076}
+    - Class: 114
+      Script: {instanceID: 3100}
+    - Class: 114
+      Script: {instanceID: 3128}
+    - Class: 114
+      Script: {instanceID: 3140}
+    - Class: 114
+      Script: {instanceID: 3224}
+    - Class: 114
+      Script: {instanceID: 3354}
+    - Class: 114
+      Script: {instanceID: 3580}
+    - Class: 114
+      Script: {instanceID: 5862}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -66,6 +103,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
   - hash:
       serializedVersion: 2
@@ -73,12 +116,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 85f3e58a15259aa904bad9fd662f342e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Weapon
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -153,6 +190,18 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 750b6d9ec7533403dc76dbfb4d096795
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Projectile
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -169,6 +218,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: f7e19a5234ad9da49d407af73a4d7035
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spawnable
   - hash:
       serializedVersion: 2
       Hash: 91d258529db2b5060a913f2afcea1a21
@@ -237,6 +292,18 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 3074b1ae261e6bf193b4603df506b7c7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: ac7e41011bd5635fa1e2f59e5fe78b14
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Weapon
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -253,6 +320,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 56fe304a00a3e371ae7167db0425e7ab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClampUnit
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -291,7 +364,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 21f63f96ba252d8aa2c093aa68896175
+      Hash: fe0322914be069bdf16541376d4fe691
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Unit
@@ -349,6 +422,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: ea0c929830ce75899aa83cb0a2d8bd16
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Barrage
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -603,16 +682,10 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: e32577d40ecb66137fa4ca32b4706393
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Projectile
-  - hash:
-      serializedVersion: 2
-      Hash: 2e1a7e2453d2960a8ff6e15a53e2b838
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DirectionalWeapon
+    className: Spawner
   platform: 19
   scenePathNames:
   - Assets/Scenes/game_scene.unity

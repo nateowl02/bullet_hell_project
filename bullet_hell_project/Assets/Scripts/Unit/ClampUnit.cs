@@ -56,8 +56,8 @@ public class ClampUnit : MonoBehaviour
         if (unitTag == "Enemy") 
         {
             // ENEMY
-            if (transform.position.x >= screenWidth || transform.position.x <= -screenWidth ||
-                transform.position.y >= screenHeight || transform.position.y <= -screenHeight)
+            if (transform.position.x >= screenWidth + widthPad || transform.position.x <= -screenWidth - widthPad ||
+                transform.position.y >= screenHeight + heightPad || transform.position.y <= -screenHeight - heightPad)
             {
                 
                 Destroy(gameObject);
