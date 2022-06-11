@@ -21,4 +21,7 @@ public static class GameRules
         screenWidth = (camMain.aspect * (screenHeight * 2f)) / 2;
     }
 
+    // DEFAULT 
+    public static Vector3 projectilePool = new Vector3(2000,2000,0);
+
 }

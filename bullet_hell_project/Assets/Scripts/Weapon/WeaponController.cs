@@ -22,7 +22,7 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Modes")]
     public bool isInverted = false;
     public enum WeaponModes
-    { 
+    {
         None,
         Directional,
         Directed
@@ -65,8 +65,14 @@ public class WeaponController : MonoBehaviour
 
                 for (int j = 0; j < primaryTurretCount; j++)
                 {
-
-                    weapon.Shoot(temp_angle, temp_offset, startSpeed, endSpeed);
+                    weapon.Shoot(new MissileProperties(
+                        direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0),
+                        position: transform.position + new Vector3(temp_offset, 0, 0),
+                        startSpeed: startSpeed,
+                        endSpeed: endSpeed
+                        )
+                        
+                    );
 
                     temp_angle += spread;
                     temp_offset += isInverted ? offset : -offset;
@@ -80,27 +86,35 @@ public class WeaponController : MonoBehaviour
 
         if (weaponMode == WeaponModes.Directed)
         {
-            Vector3 v = new Vector3();
+            Vector3 v = Vector3.up;
             bool isFound = weapon.GetObjectPosition(ref v, targetTag);
-
+     
             for (int i = 0; i < secondaryTurretCount; i++)
             {
                 float temp_angle = weapon.GetStartingAngle(primaryTurretCount, spread);
+                float temp_offset = weapon.GetStartingOffset(primaryTurretCount, offset);
+
+                Vector3 temp_direction = v - transform.position;
+                temp_direction = temp_direction.normalized;
+                temp_angle = temp_angle -Mathf.Atan2(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+
+                temp_angle = isInverted ? temp_angle + 180 : temp_angle;
+                temp_offset = isInverted ? temp_offset * -1 : temp_offset;
 
                 for (int j = 0; j < primaryTurretCount; j++)
                 {
 
-                    if (isFound && v.x != transform.position.x)
-                    {
-                        weapon.Shoot(v, temp_angle, 0, startSpeed, endSpeed);
-                    }
-                    else
-                    {
-                        weapon.Shoot(isInverted == true ? temp_angle + 180 : temp_angle, 0, startSpeed, endSpeed);
-                    }
+                    weapon.Shoot(new MissileProperties(
+                        direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0),
+                        position: transform.position + new Vector3(temp_offset, 0, 0),
+                        startSpeed: startSpeed,
+                        endSpeed: endSpeed
+                        )
+
+                    );
 
                     temp_angle += spread;
-
+                    temp_offset += isInverted ? offset : -offset;
                 }
 
                 yield return new WaitForSeconds(secondaryRateOfFire);

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
-    [Header("Objects")]
-    public Projectile projectile;
+    [Header("Missile Art")]
+    public Missile missile;
 
     [Space]
     [Header("Weapon Properties")]
@@ -14,95 +13,59 @@ public class Weapon : MonoBehaviour
     public string damageTag;
     public float maxRange;
 
-    public bool GetObjectPosition(ref Vector3 in_position, string in_target)
+    public bool GetObjectPosition(ref Vector3 position, string targetTag)
     {
-        GameObject[] player = GameObject.FindGameObjectsWithTag(in_target);
+        GameObject[] target = GameObject.FindGameObjectsWithTag(targetTag);
+        position = target.Length == 0 ? Vector3.zero : target[0].transform.position;
+        
+        return target.Length > 0;
+    }
 
-        if (player.Length == 0)
+    public float GetStartingAngle(int turretCount, float spread)
+    {
+        float startAngle = 90;
+
+        for (int i = 0; i < turretCount / 2; i++)
         {
-            in_position = Vector3.zero;
-            return false;
+            startAngle -= spread;
         }
 
-        in_position = player[0].transform.position;
-        return true;
-    }
-
-    private void SetProjectileProperty(ref Projectile in_Projectile, float in_StartSpeed, float in_EndSpeed)
-    {
-        in_Projectile.SetStartSpeed(in_StartSpeed);
-        in_Projectile.SetEndSpeed(in_EndSpeed);
-        in_Projectile.SetDamage(damage);
-        in_Projectile.SetDamageTag(damageTag);
-        in_Projectile.SetMaxRange(maxRange);
-    }
-
-    public void Shoot(float in_Spread, float in_Offset, float in_StartSpeed, float in_EndSpeed)
-    {
-        Vector3 t_newOffset = transform.position + new Vector3(in_Offset, 0, 0);
-
-        Projectile bullet = Instantiate(projectile, t_newOffset, Quaternion.Euler(0, 0, in_Spread));
-
-        SetProjectileProperty(ref bullet, in_StartSpeed, in_EndSpeed);
-    }
-    
-    public void Shoot(Vector3 in_Target, float in_Offset, float in_StartSpeed, float in_EndSpeed)
-    {
-        Shoot(in_Target, 0, in_Offset, in_StartSpeed, in_EndSpeed);
-    }
-
-    public void Shoot(Vector3 in_Target, float in_Spread, float in_Offset, float in_StartSpeed, float in_EndSpeed)
-    {
-        Vector3 t_newOffset = transform.position + new Vector3(in_Offset, 0, 0);
-        Projectile bullet = Instantiate(projectile, t_newOffset, Quaternion.identity);
-
-        bullet.transform.LookAt(in_Target);
-        bullet.transform.eulerAngles = new Vector3(bullet.transform.eulerAngles.x + 90 + in_Spread, bullet.transform.eulerAngles.y, bullet.transform.eulerAngles.z);
-
-        SetProjectileProperty(ref bullet, in_StartSpeed, in_EndSpeed);
-    }
-    
-
-    public float GetStartingAngle(int in_TurretCount, float in_Spread)
-    {
-        float in_startAngle = 0;
-
-        for (int i = 0; i < in_TurretCount / 2; i++)
+        if (turretCount % 2 == 0)
         {
-            in_startAngle -= in_Spread;
+            startAngle += spread / 2;
         }
 
-        if (in_TurretCount % 2 == 0)
-        {
-            in_startAngle += in_Spread / 2;
-        }
-
-        return in_startAngle;
+        return startAngle;
     }
 
-    public float GetStartingAngle(Vector3 in_TargetPosition, int in_TurretCount, float in_Spread)
+    public float GetStartingOffset(int turretCount, float offset)
     {
-        float t_angle = Vector3.SignedAngle(gameObject.transform.position, in_TargetPosition, Vector3.up);
+        float startOffset = 0;
 
-        return t_angle;
+        for (int i = 0; i < turretCount / 2; i++)
+        {
+            startOffset += offset;
+        }
+
+        if (turretCount % 2 == 0)
+        {
+            startOffset -= offset / 2;
+        }
+
+        return startOffset;
     }
 
-    public float GetStartingOffset(int in_TurretCount, float in_offset)
+    public void Shoot(MissileProperties missileProperties) 
     {
-        float in_startOffset = 0;
+        Missile bullet = Instantiate(missile, missileProperties.Position, Quaternion.Euler(0, 0, missileProperties.Spread));
 
-        for (int i = 0; i < in_TurretCount / 2; i++)
-        {
-            in_startOffset += in_offset;
-        }
+        bullet.direction = missileProperties.Direction;
+        bullet.speedStart = missileProperties.StartSpeed;
+        bullet.speedEnd = missileProperties.EndSpeed;
 
-        if (in_TurretCount % 2 == 0)
-        {
-            in_startOffset -= in_offset / 2;
-        }
-
-        return in_startOffset;
+        bullet.damage = damage;
+        bullet.tagDamage = damageTag;
+        bullet.rangeMax = maxRange;
     }
-
 
 }

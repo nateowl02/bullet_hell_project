@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 588485159}
-  - component: {fileID: 588485161}
-  - component: {fileID: 588485160}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -32,46 +30,6 @@ Transform:
   m_Father: {fileID: 965296390433219221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &588485161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588485158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4325d60a318c43042bfbb9db5f31a18b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 791341207666952904, guid: 97ec2515e3bebec468b4e4f80831ff47, type: 3}
-  damage: 1
-  damageTag: Enemy
-  maxRange: 15
---- !u!114 &588485160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588485158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 853bd2f8ac0871e47b267eac76c949c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaryTurretCount: 3
-  secondaryTurretCount: 4
-  primaryRateOfFire: 1
-  secondaryRateOfFire: 0.1
-  spread: 5
-  startSpeed: 10
-  endSpeed: 10
-  offset: 0.25
-  initialDelay: 0
-  targetTag: 
-  isInverted: 0
-  weaponMode: 1
 --- !u!1 &965296388866193974
 GameObject:
   m_ObjectHideFlags: 0
