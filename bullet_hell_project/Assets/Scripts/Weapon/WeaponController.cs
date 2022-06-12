@@ -69,7 +69,8 @@ public class WeaponController : MonoBehaviour
                         direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0),
                         position: transform.position + new Vector3(temp_offset, 0, 0),
                         startSpeed: startSpeed,
-                        endSpeed: endSpeed
+                        endSpeed: endSpeed,
+                        spread: temp_angle + 90
                         )
                         
                     );
@@ -105,10 +106,11 @@ public class WeaponController : MonoBehaviour
                 {
 
                     weapon.Shoot(new MissileProperties(
-                        direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0),
+                        direction: new Vector3(Mathf.Cos((temp_angle) * Mathf.Deg2Rad), Mathf.Sin((temp_angle) * Mathf.Deg2Rad), 0),
                         position: transform.position + new Vector3(temp_offset, 0, 0),
                         startSpeed: startSpeed,
-                        endSpeed: endSpeed
+                        endSpeed: endSpeed,
+                        spread: temp_angle + 90
                         )
 
                     );

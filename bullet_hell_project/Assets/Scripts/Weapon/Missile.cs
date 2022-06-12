@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
+    public Transform model;
     public enum ProjectileType { 
         linear,
         pattern,  
@@ -20,6 +21,7 @@ public class Missile : MonoBehaviour
     public Vector3 direction;
     public string tagDamage;
     public ProjectileType type;
+    public float rotation;
 
     void FixedUpdate()
     {
@@ -28,6 +30,7 @@ public class Missile : MonoBehaviour
 
     public void Move()
     {
+        model.rotation = Quaternion.Euler(0,0, rotation);
         transform.Translate(direction * (Mathf.Lerp(speedStart, speedEnd, rangeCurrent / rangeMax) * Time.deltaTime));
         if (!CheckRange()) Destroy(gameObject);
     }
