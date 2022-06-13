@@ -616,14 +616,15 @@ MonoBehaviour:
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
-  spread: 10
+  startSpread: 10
+  endSpread: 30
   startSpeed: 5
   endSpeed: 5
-  offset: 1
+  offset: 0
   initialDelay: 0
   targetTag: Enemy
   isInverted: 0
-  weaponMode: 1
+  isLocking: 0
 --- !u!114 &872134351
 MonoBehaviour:
   m_ObjectHideFlags: 0
