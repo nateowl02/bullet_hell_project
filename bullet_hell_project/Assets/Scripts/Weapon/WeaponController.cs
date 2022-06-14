@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour
     public int secondaryTurretCount;
     public float primaryRateOfFire;
     public float secondaryRateOfFire;
+    public float fixedSpread;
     public float startSpread;
     public float endSpread;
     public float startSpeed;
@@ -23,6 +24,7 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Modes")]
     public bool isInverted = false;
     public bool isLocking = false;
+    public bool isFixed = true;
 
     Weapon weapon;
     float fireCounter;
@@ -45,19 +47,21 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator ShootingController()
     {
-        // Mathf.Lerp(startSpread, endSpread, (float)i / secondaryTurretCount)
+
         for (int i = 0; i < secondaryTurretCount; i++)
         {
-            float temp_angle = weapon.GetStartingAngle(primaryTurretCount, startSpread);
+            print(Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)));
+            float temp_angle = isFixed ? weapon.GetStartingAngle(primaryTurretCount, fixedSpread, 90) : weapon.GetStartingAngle(primaryTurretCount, fixedSpread, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)));
             float temp_offset = weapon.GetStartingOffset(primaryTurretCount, offset);
 
             if (isLocking) 
             {
                 Vector3 v = Vector3.up;
-                weapon.GetObjectPosition(ref v, targetTag);
-                Vector3 temp_direction = v - transform.position;
-                temp_direction = temp_direction.normalized;
-                temp_angle = temp_angle - Mathf.Atan2(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                if (weapon.GetObjectPosition(ref v, targetTag)) 
+                {
+                    Vector3 temp_direction = v - transform.position;
+                    temp_angle = temp_angle - Mathf.Atan2(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                }
             }
             
             temp_angle = isInverted ? temp_angle + 180 : temp_angle;
@@ -67,7 +71,7 @@ public class WeaponController : MonoBehaviour
             {
 
                 weapon.Shoot(new MissileProperties(
-                    direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0),
+                    direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0).normalized,
                     position: transform.position + new Vector3(temp_offset, 0, 0),
                     startSpeed: startSpeed,
                     endSpeed: endSpeed,
@@ -76,7 +80,7 @@ public class WeaponController : MonoBehaviour
 
                 );
 
-                temp_angle += startSpread;
+                temp_angle += fixedSpread;
                 temp_offset += isInverted ? offset : -offset;
             }
 

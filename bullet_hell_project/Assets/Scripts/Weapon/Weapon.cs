@@ -21,10 +21,8 @@ public class Weapon : MonoBehaviour
         return target.Length > 0;
     }
 
-    public float GetStartingAngle(int turretCount, float spread)
+    public float GetStartingAngle(int turretCount, float spread, float startAngle)
     {
-        float startAngle = 90;
-
         for (int i = 0; i < turretCount / 2; i++)
         {
             startAngle -= spread;
