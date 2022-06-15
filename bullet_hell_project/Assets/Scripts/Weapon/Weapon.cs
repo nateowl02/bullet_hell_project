@@ -53,6 +53,18 @@ public class Weapon : MonoBehaviour
         return startOffset;
     }
 
+    public Vector3 DrawLine(Vector3 p0, Vector3 p1, float ratio)
+    {
+        return new Vector3(Mathf.Lerp(p0.x, p1.x, ratio), Mathf.Lerp(p0.y, p1.y, ratio),0);
+    }
+
+    public Vector3 DrawArc(float startAngle, float endAngle, float ratio)
+    {
+        float temp_angle = Mathf.Lerp(startAngle, endAngle, ratio);
+        return new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0);
+    }
+
+
     public void Shoot(MissileProperties missileProperties) 
     {
         Missile bullet = Instantiate(missile, missileProperties.Position, Quaternion.identity);
@@ -65,5 +77,7 @@ public class Weapon : MonoBehaviour
         bullet.tagDamage = damageTag;
         bullet.rangeMax = maxRange;
     }
+
+
 
 }
