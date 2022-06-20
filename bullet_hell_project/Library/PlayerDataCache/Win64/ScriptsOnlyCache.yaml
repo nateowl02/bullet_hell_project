@@ -1,15 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Barrage
     - ClampUnit
+    - Missile
     - Player
     - PlayerController
-    - Projectile
     - Spawnable
     - Spawner
+    - UIHandler
     - Unit
-    - UnitBehavior
     - Weapon
     - WeaponController
     Unity.2D.Animation.Editor.dll:
@@ -27,6 +26,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -34,6 +39,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -62,37 +68,161 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1516}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1848}
+      Script: {instanceID: 2334}
     - Class: 114
-      Script: {instanceID: 2168}
+      Script: {instanceID: 2710}
     - Class: 114
-      Script: {instanceID: 2310}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 2686}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 2930}
+      Script: {instanceID: 3126}
     - Class: 114
-      Script: {instanceID: 3066}
+      Script: {instanceID: 3154}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3166}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3128}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3140}
+      Script: {instanceID: 3510}
     - Class: 114
-      Script: {instanceID: 3224}
+      Script: {instanceID: 4312}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 5892}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/main_menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 3580}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 5862}
+      Script: {instanceID: 1864}
+    - Class: 114
+      Script: {instanceID: 2270}
+    - Class: 114
+      Script: {instanceID: 2710}
+    - Class: 114
+      Script: {instanceID: 2882}
+    - Class: 114
+      Script: {instanceID: 2932}
+    - Class: 114
+      Script: {instanceID: 3032}
+    - Class: 114
+      Script: {instanceID: 3126}
+    - Class: 114
+      Script: {instanceID: 3380}
+    - Class: 114
+      Script: {instanceID: 3500}
+    - Class: 114
+      Script: {instanceID: 4904}
+    - Class: 114
+      Script: {instanceID: 5302}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/tutorial_scene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1542}
+    - Class: 114
+      Script: {instanceID: 2334}
+    - Class: 114
+      Script: {instanceID: 2710}
+    - Class: 114
+      Script: {instanceID: 2882}
+    - Class: 114
+      Script: {instanceID: 2940}
+    - Class: 114
+      Script: {instanceID: 3102}
+    - Class: 114
+      Script: {instanceID: 3126}
+    - Class: 114
+      Script: {instanceID: 3154}
+    - Class: 114
+      Script: {instanceID: 3166}
+    - Class: 114
+      Script: {instanceID: 3250}
+    - Class: 114
+      Script: {instanceID: 3380}
+    - Class: 114
+      Script: {instanceID: 3510}
+    - Class: 114
+      Script: {instanceID: 4312}
+    - Class: 114
+      Script: {instanceID: 5892}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -190,18 +320,6 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 750b6d9ec7533403dc76dbfb4d096795
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WeaponController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Projectile
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -292,16 +410,22 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 98e8ebe2acebf24cb67d079579cc93e4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponController
+  - hash:
+      serializedVersion: 2
       Hash: 3074b1ae261e6bf193b4603df506b7c7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitBehavior
   - hash:
       serializedVersion: 2
-      Hash: ac7e41011bd5635fa1e2f59e5fe78b14
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Weapon
+    className: UIHandler
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -412,6 +536,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 9e7f419d80d5a60ebe988ee680a4edb9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Missile
+  - hash:
+      serializedVersion: 2
       Hash: 349d08daa6108b9a28f8c38fd40ce96f
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
@@ -422,12 +552,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
-  - hash:
-      serializedVersion: 2
-      Hash: ea0c929830ce75899aa83cb0a2d8bd16
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Barrage
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -512,6 +636,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: EventTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: cbf0e9db8de99580ef808e425c868170
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Weapon
   - hash:
       serializedVersion: 2
       Hash: 87cef3c82381dc586f6772c3e27561b6
@@ -646,6 +776,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 429308c182ae6ce7e0c3e3d5bdb94f47
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OrbitController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -688,5 +824,7 @@ ScriptsOnlyBuild:
     className: Spawner
   platform: 19
   scenePathNames:
+  - Assets/Scenes/main_menu.unity
   - Assets/Scenes/game_scene.unity
+  - Assets/Scenes/tutorial_scene.unity
   playerPath: C:/Users/Edison/Unity/bullet_hell_project/release/bullet_hell_project.exe

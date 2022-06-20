@@ -22,6 +22,12 @@ public class Missile : MonoBehaviour
     public string tagDamage;
     public ProjectileType type;
     public float rotation;
+    public float initialDelay;
+
+    private void Start()
+    {
+        
+    }
 
     void FixedUpdate()
     {

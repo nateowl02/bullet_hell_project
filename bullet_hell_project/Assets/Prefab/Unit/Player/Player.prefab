@@ -61,6 +61,10 @@ MonoBehaviour:
   isLocking: 1
   isFixed: 0
   isOrbiting: 0
+  patternDuration: 0
+  bulletPattern: 0
+  projectileCount: 0
+  radius: 0
 --- !u!114 &872134351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +176,7 @@ GameObject:
   - component: {fileID: 965296390433219227}
   - component: {fileID: 965296390433219226}
   - component: {fileID: 965296390433219225}
+  - component: {fileID: 7114786588305975713}
   - component: {fileID: 8939410195480097719}
   - component: {fileID: 8810679505852644455}
   m_Layer: 0
@@ -253,6 +258,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightPad: 0
   widthPad: 0
+--- !u!114 &7114786588305975713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965296390433219224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3e624631d363144b697a5167f2492a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &8939410195480097719
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

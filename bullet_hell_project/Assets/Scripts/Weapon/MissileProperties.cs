@@ -12,6 +12,7 @@ public class MissileProperties
     float _damage { get; }
     string _damageTag { get; }
     float _spread { get; }
+    float _initialDelay { get; }
 
     public Vector3 Position
     {
@@ -53,6 +54,12 @@ public class MissileProperties
         get { return _spread; }
     }
 
+    public float InitialDelay
+    {
+        get { return _initialDelay; }
+    }
+
+
     public MissileProperties(Vector3 position = default(Vector3), 
                              Vector3 direction = default(Vector3), 
                              float startSpeed = 0, 
@@ -60,7 +67,8 @@ public class MissileProperties
                              float range = 0, 
                              float damage = 0, 
                              string damageTag = "", 
-                             float spread = 0) 
+                             float spread = 0,
+                             float initialDelay = 0) 
     {
         _position = position;
         _direction = direction;
@@ -70,6 +78,7 @@ public class MissileProperties
         _damage = damage;
         _damageTag = damageTag;
         _spread = spread;
+        _initialDelay = initialDelay;
     }
 
 }

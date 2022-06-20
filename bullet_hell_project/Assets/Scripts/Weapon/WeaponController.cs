@@ -32,14 +32,18 @@ public class WeaponController : MonoBehaviour
     public bool isOrbiting = false;
 
     [Space]
-    [Header("Shape")]
-    BulletShape bulletShape;
-    public enum BulletShape 
+    [Header("Bullet Patterns")]
+    public float patternDuration;
+    public BulletPatterns bulletPattern;
+    public int projectileCount;
+    public float radius;
+
+    public enum BulletPatterns 
     { 
         None,
-        Triangle,
-        Square
+        Circle
     }
+
 
     Weapon weapon;
     float fireCounter;
@@ -79,14 +83,14 @@ public class WeaponController : MonoBehaviour
                 if (weapon.GetObjectPosition(ref v, targetTag))
                 {
                     Vector3 temp_direction = v - transform.position;
-                    temp_angle = temp_angle - Mathf.Atan2(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                    temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
                 }
             }
 
             if (isOrbiting)
             {
                 Vector3 temp_direction = transform.position - transform.parent.position;
-                temp_angle = temp_angle - Mathf.Atan2(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
             }
             
             temp_angle = isInverted ? temp_angle + 180 : temp_angle;
@@ -95,17 +99,33 @@ public class WeaponController : MonoBehaviour
 
             for (int j = 0; j < primaryTurretCount; j++)
             {
+                Vector3 position = weapon.transform.position + new Vector3(temp_offsetX, temp_offsetY, 0);
+                Vector3 direction = GetDirectionFromAngle(temp_angle).normalized;
 
-                weapon.Shoot(new MissileProperties(
-                    direction: new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0).normalized,
-                    position: weapon.transform.position + new Vector3(temp_offsetX, temp_offsetY, 0),
+                MissileProperties missile = new MissileProperties
+                (
+                    direction: direction,
+                    position: position,
                     startSpeed: startSpeed,
                     endSpeed: endSpeed,
                     spread: temp_angle + 90
-                    )
 
                 );
 
+                object[] parms = { position, direction };
+
+                switch (bulletPattern)
+                {
+                    case BulletPatterns.None:
+                        weapon.Shoot(missile);
+                        break;
+                    case BulletPatterns.Circle:
+                        StartCoroutine("DrawPattern", parms);
+                        break;
+                    default:
+                        break;
+                }
+                
                 temp_angle += fixedSpread;
                 temp_offsetX += isInverted ? offsetX : -offsetX;
                 temp_offsetY += isInverted ? offsetY : -offsetY;
@@ -113,5 +133,47 @@ public class WeaponController : MonoBehaviour
 
             yield return new WaitForSeconds(secondaryRateOfFire);
         }
+    }
+
+    IEnumerator DrawPattern(object[] parms) 
+    {
+        if (bulletPattern == BulletPatterns.Circle) 
+        {
+            Vector3 center = (Vector3) parms[0];
+            Vector3 direction = (Vector3) parms[1];
+            float fixedAngle = 360 / projectileCount;
+            float currentAngle = 0;
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                Vector3 position = GetDirectionFromAngle(currentAngle).normalized * radius;
+
+                MissileProperties missile = new MissileProperties
+                (
+                    direction: direction,
+                    position: center + position,
+                    startSpeed: startSpeed,
+                    endSpeed: endSpeed,
+                    spread: currentAngle + 90,
+                    initialDelay: initialDelay
+                );
+
+                weapon.Shoot(missile);
+                currentAngle += fixedAngle;
+                yield return new WaitForSeconds(patternDuration);
+
+            }
+
+        }
+    }
+
+    float GetAngleFromPoint(float x, float y)
+    {
+        return Mathf.Atan2(x, y) * Mathf.Rad2Deg;
+    }
+
+    Vector3 GetDirectionFromAngle(float angle)
+    {
+        return new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0);
     }
 }

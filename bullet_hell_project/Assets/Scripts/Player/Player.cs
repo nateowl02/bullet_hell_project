@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Unit))]
 public class Player : MonoBehaviour
 {
+
     Unit unit;
 
     void Start()
@@ -16,4 +17,5 @@ public class Player : MonoBehaviour
     {
         transform.Translate((velocity * unit.speed) * Time.deltaTime);
     }
+
 }
