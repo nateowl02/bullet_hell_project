@@ -82,14 +82,14 @@ public class WeaponController : MonoBehaviour
                 if (weapon.GetObjectPosition(ref v, targetTag))
                 {
                     Vector3 temp_direction = v - transform.position;
-                    temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                    temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y);
                 }
             }
 
             if (isOrbiting)
             {
                 Vector3 temp_direction = transform.position - transform.parent.position;
-                temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y) * Mathf.Rad2Deg;
+                temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y);
             }
             
             temp_angle = isInverted ? temp_angle + 180 : temp_angle;

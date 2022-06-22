@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Weapon : MonoBehaviour
     public bool GetObjectPosition(ref Vector3 position, string targetTag)
     {
         GameObject[] target = GameObject.FindGameObjectsWithTag(targetTag);
+        target = target.OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToArray();
         position = target.Length == 0 ? Vector3.zero : target[0].transform.position;
         
         return target.Length > 0;

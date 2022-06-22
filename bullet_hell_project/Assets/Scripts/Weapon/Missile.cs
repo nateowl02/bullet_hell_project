@@ -22,11 +22,6 @@ public class Missile : MonoBehaviour
     public float rotation;
     public float initialDelay;
 
-    private void Start()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         Move();
