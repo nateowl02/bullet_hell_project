@@ -39,7 +39,6 @@ public class Unit : MonoBehaviour
 
     public void Damage(float in_damage)
     {
-        
         if (isDestructible) healthCurrent -= in_damage;
     }
 

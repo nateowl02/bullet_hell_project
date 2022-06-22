@@ -44,7 +44,7 @@ public class Missile : MonoBehaviour
         if (other.gameObject.tag == tagDamage)
         {
             Unit unit = other.GetComponent<Unit>();
-            unit.Damage(damage);
+            if (unit != null) unit.Damage(damage);
 
             Destroy(gameObject);
         }

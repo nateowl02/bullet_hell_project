@@ -21,7 +21,7 @@ public class TimeJuiceUI : MonoBehaviour
     private void Update()
     {
         timeJuiceFill.fillAmount = currentFillAmount / juicePerLevel[currentJuiceLevel];
-        txtJuiceCount.text = currentJuiceLevel < juicePerLevel.Length - 1 ? "x" + currentJuiceLevel.ToString()  : "MAX";
+        txtJuiceCount.text = (currentFillAmount == juicePerLevel[currentJuiceLevel] && currentJuiceLevel == juicePerLevel.Length - 1) ? "MAX" : "x" + currentJuiceLevel.ToString();
     }
 
     public void OnCollectTimeJuice()
@@ -38,12 +38,17 @@ public class TimeJuiceUI : MonoBehaviour
 
     public void OnConsumeTimeJuice() 
     {
-        if (currentFillAmount == 0 && currentJuiceLevel == 0) return;
+        if (isJuiceEmpty()) return;
         currentFillAmount--;
         if (currentFillAmount == 0 && currentJuiceLevel > 0)
         {
             currentJuiceLevel--;
             currentFillAmount = juicePerLevel[currentJuiceLevel];
         }
+    }
+
+    public bool isJuiceEmpty()
+    {
+        return (currentFillAmount == 0 && currentJuiceLevel == 0);
     }
 }
