@@ -31,18 +31,9 @@ public class WeaponController : MonoBehaviour
     public bool isOrbiting = false;
 
     [Space]
-    [Header("Bullet Patterns")]
-    public float patternDuration;
-    public BulletPatterns bulletPattern;
-    public int projectileCount;
-    public float radius;
-
-    public enum BulletPatterns 
-    { 
-        None,
-        Circle
-    }
-
+    [Header("Bullet Special")]
+    public bool isDelayedTracking = false;
+    public float trackingDelay;
 
     Weapon weapon;
     float fireCounter;
@@ -61,8 +52,6 @@ public class WeaponController : MonoBehaviour
 
             fireCounter = Time.time + primaryRateOfFire;
         }
-
-
     }
 
     IEnumerator ShootingController()
@@ -107,23 +96,15 @@ public class WeaponController : MonoBehaviour
                     position: position,
                     startSpeed: startSpeed,
                     endSpeed: endSpeed,
-                    spread: temp_angle + 90
-
+                    spread: temp_angle + 90,
+                    isDelayedTracking: isDelayedTracking,
+                    trackingDelay: trackingDelay
                 );
 
                 object[] parms = { position, direction };
 
-                switch (bulletPattern)
-                {
-                    case BulletPatterns.None:
-                        weapon.Shoot(missile);
-                        break;
-                    case BulletPatterns.Circle:
-                        StartCoroutine("DrawPattern", parms);
-                        break;
-                    default:
-                        break;
-                }
+                weapon.Shoot(missile);
+
                 
                 temp_angle += fixedSpread;
                 temp_offsetX += isInverted ? offsetX : -offsetX;
@@ -134,44 +115,12 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    IEnumerator DrawPattern(object[] parms) 
-    {
-        if (bulletPattern == BulletPatterns.Circle) 
-        {
-            Vector3 center = (Vector3) parms[0];
-            Vector3 direction = (Vector3) parms[1];
-            float fixedAngle = 360 / projectileCount;
-            float currentAngle = 0;
-
-            for (int i = 0; i < projectileCount; i++)
-            {
-                Vector3 position = GetDirectionFromAngle(currentAngle).normalized * radius;
-
-                MissileProperties missile = new MissileProperties
-                (
-                    direction: direction,
-                    position: center + position,
-                    startSpeed: startSpeed,
-                    endSpeed: endSpeed,
-                    spread: currentAngle + 90,
-                    initialDelay: initialDelay
-                );
-
-                weapon.Shoot(missile);
-                currentAngle += fixedAngle;
-                yield return new WaitForSeconds(patternDuration);
-
-            }
-
-        }
-    }
-
-    float GetAngleFromPoint(float x, float y)
+    public static float GetAngleFromPoint(float x, float y)
     {
         return Mathf.Atan2(x, y) * Mathf.Rad2Deg;
     }
 
-    Vector3 GetDirectionFromAngle(float angle)
+    public static Vector3 GetDirectionFromAngle(float angle)
     {
         return new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0);
     }

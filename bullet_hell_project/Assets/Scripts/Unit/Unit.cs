@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using System;
 public class Unit : MonoBehaviour
 {
+    public event Action OnDeath;
 
     [Space]
     [Header("Player Stats")]
@@ -28,6 +29,7 @@ public class Unit : MonoBehaviour
         if (healthCurrent <= 0.0f && !isDead)
         {
             isDead = true;
+            if (OnDeath != null) OnDeath();
             Destroy(gameObject);
         }
     }

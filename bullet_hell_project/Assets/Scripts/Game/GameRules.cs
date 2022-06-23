@@ -15,11 +15,11 @@ public static class GameRules
     static GameRules()
     {
         camMain = Camera.main;
+        screenHeight = Screen.height;
+        screenWidth = Screen.width;
         screenHeight = camMain.orthographicSize;
-        screenWidth = (camMain.aspect * (screenHeight * 2f)) / 2;
+        screenWidth = (camMain.aspect * (screenHeight * 2f) / 2f);
     }
 
-    // DEFAULT 
-    public static Vector3 projectilePool = new Vector3(2000,2000,0);
 
 }

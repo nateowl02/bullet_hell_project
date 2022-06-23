@@ -11,11 +11,12 @@ public class Weapon : MonoBehaviour
     public float damage = 1;
     public string damageTag;
     public float maxRange;
+    public bool isPiercing = false;
 
     public bool GetObjectPosition(ref Vector3 position, string targetTag)
     {
         GameObject[] target = GameObject.FindGameObjectsWithTag(targetTag);
-        target = target.OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToArray();
+        target = GetSortedArray(target);
         position = target.Length == 0 ? Vector3.zero : target[0].transform.position;
         
         return target.Length > 0;
@@ -53,23 +54,9 @@ public class Weapon : MonoBehaviour
         return startOffset;
     }
 
-    /*
-    public Vector3 DrawLine(Vector3 p0, Vector3 p1, float ratio)
-    {
-        return new Vector3(Mathf.Lerp(p0.x, p1.x, ratio), Mathf.Lerp(p0.y, p1.y, ratio),0);
-    }
-
-    public Vector3 DrawArc(float startAngle, float endAngle, float ratio)
-    {
-        float temp_angle = Mathf.Lerp(startAngle, endAngle, ratio);
-        return new Vector3(Mathf.Cos(temp_angle * Mathf.Deg2Rad), Mathf.Sin(temp_angle * Mathf.Deg2Rad), 0);
-    }
-    */
-
     public void Shoot(MissileProperties missileProperties) 
     {
         Missile bullet = Instantiate(missile, missileProperties.Position, Quaternion.identity);
-
         bullet.direction = missileProperties.Direction;
         bullet.speedStart = missileProperties.StartSpeed;
         bullet.speedEnd = missileProperties.EndSpeed;
@@ -77,8 +64,17 @@ public class Weapon : MonoBehaviour
         bullet.damage = damage;
         bullet.tagDamage = damageTag;
         bullet.rangeMax = maxRange;
+        bullet.isDelayedTracking = missileProperties.IsDelayedTracking;
+        bullet.trackingDelay = missileProperties.TrackingDelay;
+        bullet.isPiercing = isPiercing;
+        bullet.TrackingDelay();
+
+        
     }
 
-
+    GameObject[] GetSortedArray(GameObject[] gameObject)
+    { 
+        return gameObject.OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToArray();
+    }
 
 }

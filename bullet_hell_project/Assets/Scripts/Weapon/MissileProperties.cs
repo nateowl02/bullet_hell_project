@@ -11,13 +11,17 @@ public class MissileProperties
     string _damageTag { get; }
     float _spread { get; }
     float _initialDelay { get; }
+    bool _isDelayedTracking { get; }
+    float _trackingDelay { get; }
+
+    bool _isPiercing { get; }
 
     public Vector3 Position
     {
-        get { return _position;  }
+        get { return _position; }
     }
 
-    public Vector3 Direction 
+    public Vector3 Direction
     {
         get { return _direction; }
     }
@@ -33,7 +37,7 @@ public class MissileProperties
     }
 
     public float Range
-    { 
+    {
         get { return _range; }
     }
 
@@ -57,6 +61,15 @@ public class MissileProperties
         get { return _initialDelay; }
     }
 
+    public bool IsDelayedTracking
+    {
+        get { return _isDelayedTracking; }
+    }
+
+    public float TrackingDelay
+    {
+        get { return _trackingDelay;  }
+    }
 
     public MissileProperties(Vector3 position = default(Vector3), 
                              Vector3 direction = default(Vector3), 
@@ -66,7 +79,9 @@ public class MissileProperties
                              float damage = 0, 
                              string damageTag = "", 
                              float spread = 0,
-                             float initialDelay = 0) 
+                             float initialDelay = 0,
+                             bool isDelayedTracking = false,
+                             float trackingDelay = 0) 
     {
         _position = position;
         _direction = direction;
@@ -77,6 +92,8 @@ public class MissileProperties
         _damageTag = damageTag;
         _spread = spread;
         _initialDelay = initialDelay;
+        _isDelayedTracking = isDelayedTracking;
+        _trackingDelay = trackingDelay;
     }
 
 }

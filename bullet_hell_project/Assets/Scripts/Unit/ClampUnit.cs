@@ -15,8 +15,8 @@ public class ClampUnit : MonoBehaviour
     void Start()
     {
         unitTag = GetComponent<Unit>().GetUnitTag();
-        screenWidth = GameRules.screenWidth + heightPad;
-        screenHeight = GameRules.screenHeight + widthPad;
+        screenWidth = GameRules.screenWidth + widthPad;
+        screenHeight = GameRules.screenHeight + heightPad;
     }
 
     void Update()
