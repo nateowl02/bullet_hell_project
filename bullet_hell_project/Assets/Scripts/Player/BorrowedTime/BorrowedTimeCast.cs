@@ -9,7 +9,7 @@ public class BorrowedTimeCast : MonoBehaviour
     public Transform borrowedTimeShield;
     public float drainDelay = 0.25f;
     float drainCounter;
-
+    bool isShielded = false;
     void Start()
     {
         timeJuiceUi = FindObjectOfType<TimeJuiceUI>();
@@ -19,33 +19,36 @@ public class BorrowedTimeCast : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+
+        if (isShielded && !timeJuiceUi.isJuiceEmpty())
         {
-            
+            if (Time.time > drainCounter)
+            {
+                timeJuiceUi.OnConsumeTimeJuice();
+                drainCounter = Time.time + drainDelay;
+            }
+        }
+        else 
+        {
+            isShielded = false;
+            unit.isDestructible = true;
+            borrowedTimeShield.gameObject.SetActive(false);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Time.time > drainCounter)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            timeJuiceUi.OnConsumeTimeJuice();
-            drainCounter = Time.time + drainDelay;
-            if (!timeJuiceUi.isJuiceEmpty())
-            {
-                unit.isDestructible = false;
-                borrowedTimeShield.gameObject.SetActive(true);
-            }
-            else
-            { 
-                borrowedTimeShield.gameObject.SetActive(false);
-                unit.isDestructible = true;
-            }
+            isShielded = true;
+            unit.isDestructible = false;
+            borrowedTimeShield.gameObject.SetActive(true);
         }
-        
-        /*
+
         if (Input.GetKeyUp(KeyCode.LeftShift))
-        { 
-            borrowedTimeShield.gameObject.SetActive(false);
+        {
+            isShielded = false;
             unit.isDestructible = true;
+            borrowedTimeShield.gameObject.SetActive(false);
         }
-        */
     }
+
+
 }

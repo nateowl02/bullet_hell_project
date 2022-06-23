@@ -9,7 +9,7 @@ public class TimeJuiceUI : MonoBehaviour
     public TextMeshProUGUI txtJuiceCount;
 
     public int[] juicePerLevel;
-    int currentJuiceLevel;
+    public int currentJuiceLevel = 0;
     float currentFillAmount;
 
     private void Start()
@@ -28,7 +28,7 @@ public class TimeJuiceUI : MonoBehaviour
     {
         if (currentFillAmount == juicePerLevel[currentJuiceLevel] && currentJuiceLevel == juicePerLevel.Length - 1) return;
         currentFillAmount++;
-        if (currentFillAmount == juicePerLevel[currentJuiceLevel] &&
+        if (currentFillAmount >= juicePerLevel[currentJuiceLevel] &&
             currentJuiceLevel < juicePerLevel.Length - 1)
         {
             currentFillAmount = 0;
@@ -40,7 +40,7 @@ public class TimeJuiceUI : MonoBehaviour
     {
         if (isJuiceEmpty()) return;
         currentFillAmount--;
-        if (currentFillAmount == 0 && currentJuiceLevel > 0)
+        if (currentFillAmount <= 0 && currentJuiceLevel > 0)
         {
             currentJuiceLevel--;
             currentFillAmount = juicePerLevel[currentJuiceLevel];

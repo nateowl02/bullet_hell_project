@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 7114786588305975713}
   - component: {fileID: 2668617708581239934}
   - component: {fileID: 194177662107186254}
-  - component: {fileID: 7658497721174212766}
+  - component: {fileID: 264038532902181715}
   - component: {fileID: 8939410195480097719}
   - component: {fileID: 8810679505852644455}
   m_Layer: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0de76fbaa68ee948a195cd0c1af027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightPad: 1
+  heightPad: -1
   widthPad: 0
 --- !u!114 &7114786588305975713
 MonoBehaviour:
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borrowedTimeShield: {fileID: 7880271500742739689}
   drainDelay: 0.15
---- !u!114 &7658497721174212766
+--- !u!114 &264038532902181715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,7 +705,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponList:
-  - {fileID: 588485159}
+  - {fileID: 8146955997722040277}
+  - {fileID: 1659504776483636176}
+  - {fileID: 3655685260759612917}
+  - {fileID: 1968774986}
+  - {fileID: 488392016}
+  - {fileID: 2660716476211210077}
+  - {fileID: 6262491879165230963}
 --- !u!70 &8939410195480097719
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2314,7 +2320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7638909935895936499
 Transform:
   m_ObjectHideFlags: 0
