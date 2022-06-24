@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4014973956834781854}
   - component: {fileID: 4014973956834781853}
   - component: {fileID: 4014973956834781852}
+  - component: {fileID: 2545905288811022035}
+  - component: {fileID: 6645852441284668382}
   - component: {fileID: 4014973956834781855}
   - component: {fileID: 4014973956834781824}
   m_Layer: 0
@@ -82,6 +84,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: 0
   delay: 3
+--- !u!114 &2545905288811022035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014973956834781850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6345fd76fb4d05947bbc9f4997e42922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 50
+--- !u!114 &6645852441284668382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014973956834781850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6213c8a029bc439404105542be2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeJuice: {fileID: 6291693783845433908, guid: 309aa4dccf4f5ff42a07cfcbf830f9c9, type: 3}
 --- !u!70 &4014973956834781855
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
