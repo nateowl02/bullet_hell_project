@@ -4,21 +4,20 @@ using UnityEngine;
 [RequireComponent(typeof(Unit))]
 public class UnitBehavior : MonoBehaviour
 {
-
     public enum BehaviorTypes
     {
         None,
         Intercepting,
         Descending,
-        Avoiding
-
+        Drifting
     }
     public BehaviorTypes behavior;
     public float delay;
-    
+    public bool isEscaping = false;
+    //
     Unit unit;
-    Vector2 TargetLocation;
     float pause;
+    //
 
     void Start()
     {
@@ -26,71 +25,44 @@ public class UnitBehavior : MonoBehaviour
         StartCoroutine("MoveToLocation");
     }
 
-
-    Vector3 GetPlayerLocation()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null)
-        {
-            return new Vector3(Random.Range(-GameRules.screenWidth, GameRules.screenWidth), transform.position.y, 0);
-        }
-
-        return new Vector3(player.transform.position.x, Random.Range(GameRules.screenHeight, GameRules.screenHeight / 2), 0);
-
-    }
-
-    Vector2 GetRandomLocation()
-    {
-        return new Vector2(Random.Range(-GameRules.screenWidth, GameRules.screenWidth), Random.Range(GameRules.screenHeight, GameRules.screenHeight / 2));
-    }
-
     IEnumerator MoveToLocation()
     {
-
-        Vector3 targetLocation = GetPlayerLocation();
+        Vector3 targetLocation = EmpireanMath.GetTarget(transform.position, "Player", true);
 
         while (behavior == BehaviorTypes.Intercepting)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetLocation, unit.speed * Time.deltaTime);
-
             if (transform.position ==  targetLocation)
             {
-                targetLocation = GetPlayerLocation();
+                targetLocation = EmpireanMath.GetTarget(transform.position, "Player", true);
                 yield return new WaitForSeconds(delay);
             }
-
             yield return null;
         }
 
         while (behavior == BehaviorTypes.Descending)
         {
             if (Time.time < pause || delay == 0)
-            {
                 transform.Translate((Vector3.down * unit.speed) * Time.deltaTime);
-            }
             else
             {
                 yield return new WaitForSeconds(delay);
                 pause = Time.time + delay;
-
             }
 
             yield return null;
         }
      
-        targetLocation = GetRandomLocation();
+        targetLocation = EmpireanMath.GetRandomLocation();
 
-        while (behavior == BehaviorTypes.Avoiding)
+        while (behavior == BehaviorTypes.Drifting)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetLocation, unit.speed * Time.deltaTime);
-
             if (transform.position == targetLocation)
             {
-                targetLocation = GetRandomLocation();
+                targetLocation = EmpireanMath.GetRandomLocation();
                 yield return new WaitForSeconds(delay);
             }
-
             yield return null;
         }
 

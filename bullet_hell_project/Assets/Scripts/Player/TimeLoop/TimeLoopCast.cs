@@ -11,9 +11,7 @@ public class TimeLoopCast : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (timePortalLocation == null)
-            {
                 timePortalLocation = Instantiate(timeLoopPortal, transform.position, Quaternion.identity);
-            }
             else
             {
                 transform.position = timePortalLocation.transform.position;

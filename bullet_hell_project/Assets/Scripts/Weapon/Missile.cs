@@ -17,6 +17,7 @@ public class Missile : MonoBehaviour
     public float rotation;
     public float initialDelay;
 
+    [Header("Special")]
     public bool isDelayedTracking;
     public float trackingDelay;
     public bool isPiercing;
@@ -36,7 +37,7 @@ public class Missile : MonoBehaviour
 
     void Move()
     {
-        model.rotation = Quaternion.Euler(0,0, rotation + 180);
+        model.rotation = Quaternion.Euler(0, 0, rotation + 180);
         transform.Translate(direction * (Mathf.Lerp(speedStart, speedEnd, rangeCurrent / rangeMax) * Time.deltaTime));
         if (!CheckRange()) Destroy(gameObject);
         
@@ -64,11 +65,9 @@ public class Missile : MonoBehaviour
         {
             yield return null;
         }
-      
-        GameObject[] target = GameObject.FindGameObjectsWithTag(tagDamage);
-        target = target.OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToArray();
-        direction = target.Length > 0 ? (target[0].transform.position - transform.position).normalized : direction;
+        
+        direction = EmpireanMath.GetTargetDirection(transform.position, direction, tagDamage, true);
         rotation = 180;
-        rotation = rotation - WeaponController.GetAngleFromPoint(direction.x, direction.y);
+        rotation = rotation - EmpireanMath.GetAngleFromPoint(direction.x, direction.y);
     }
 }

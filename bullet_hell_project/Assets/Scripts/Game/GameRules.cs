@@ -20,6 +20,4 @@ public static class GameRules
         screenHeight = camMain.orthographicSize;
         screenWidth = (camMain.aspect * (screenHeight * 2f) / 2f);
     }
-
-
 }

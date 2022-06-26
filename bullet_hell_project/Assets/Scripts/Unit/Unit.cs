@@ -15,9 +15,11 @@ public class Unit : MonoBehaviour
     [Header("Collision")]
     public string collisionDamageTag;
     public float collisionDamage;
-    float damageCounter;
 
-    protected bool isDead = false;
+    //
+    float damageCounter;
+    bool isDead = false;
+    //
 
     void Start()
     {
@@ -50,7 +52,6 @@ public class Unit : MonoBehaviour
         {
             Unit unit = other.GetComponent<Unit>();
             unit.Damage(collisionDamage);
-
             DelayedDamage();
         }
     }
@@ -59,10 +60,8 @@ public class Unit : MonoBehaviour
     {
         if (other.gameObject.tag == collisionDamageTag && Time.time > damageCounter)
         {
-          
             Unit unit = other.GetComponent<Unit>();
             unit.Damage(collisionDamage);
-
             DelayedDamage();
         }
     }

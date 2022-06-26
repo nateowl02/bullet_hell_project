@@ -4,13 +4,13 @@ using UnityEngine;
 public class ClampUnit : MonoBehaviour
 {
 
-
     public float heightPad;
     public float widthPad;
-
+    //
     string unitTag;
     float screenHeight;
     float screenWidth;
+    //
 
     void Start()
     {
@@ -28,42 +28,23 @@ public class ClampUnit : MonoBehaviour
     {
         if (unitTag == "Player") 
         {
-
-            // PLAYER
             if (transform.position.x >= screenWidth)
-            {
                 transform.position = new Vector3(screenWidth, transform.position.y, 0);
-            }
-
             if (transform.position.x <= -screenWidth)
-            {
                 transform.position = new Vector3(-screenWidth, transform.position.y, 0);
-            }
-
             if (transform.position.y >= screenHeight)
-            {
                 transform.position = new Vector3(transform.position.x, screenHeight, 0);
-            }
-
             if (transform.position.y <= -screenHeight)
-            {
                 transform.position = new Vector3(transform.position.x, -screenHeight, 0);
-            }
         }
 
         if (unitTag == "Enemy") 
         {
-            // ENEMY
-            if (transform.position.x >= screenWidth + widthPad || transform.position.x <= -screenWidth - widthPad ||
-                transform.position.y >= screenHeight + heightPad || transform.position.y <= -screenHeight - heightPad)
-            {
-                
+            if (transform.position.x >= screenWidth + widthPad || 
+                transform.position.x <= -screenWidth - widthPad ||
+                transform.position.y >= screenHeight + heightPad || 
+                transform.position.y <= -screenHeight - heightPad)
                 Destroy(gameObject);
-            }
-        }
-        
-        
-
-        
+        } 
     }
 }

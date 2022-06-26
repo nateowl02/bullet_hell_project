@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Weapon))]
 public class WeaponController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class WeaponController : MonoBehaviour
     [Header("Bullet Special")]
     public bool isDelayedTracking = false;
     public float trackingDelay;
+    public bool isRetaliating = false;
 
     Weapon weapon;
     float fireCounter;
@@ -42,14 +44,14 @@ public class WeaponController : MonoBehaviour
     {
         weapon = GetComponent<Weapon>();
         fireCounter = Time.time + initialDelay;
+
     }
 
     void Update()
     {
         if (Time.time >= fireCounter)
         {
-            StartCoroutine("ShootingController");
-
+            Shoot();
             fireCounter = Time.time + primaryRateOfFire;
         }
     }
@@ -59,26 +61,22 @@ public class WeaponController : MonoBehaviour
 
         for (int i = 0; i < secondaryTurretCount; i++)
         {
-            
-            
-            float temp_angle = isFixed ? weapon.GetStartingAngle(primaryTurretCount, fixedSpread, 90) : weapon.GetStartingAngle(primaryTurretCount, fixedSpread, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)));
-            float temp_offsetX = weapon.GetStartingOffset(primaryTurretCount, offsetX);
-            float temp_offsetY = weapon.GetStartingOffset(primaryTurretCount, offsetY);
+            float temp_angle = isFixed ? EmpireanMath.GetStartingAngle(primaryTurretCount, fixedSpread, 90) : EmpireanMath.GetStartingAngle(primaryTurretCount, fixedSpread, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)));
+            float temp_offsetX = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetX);
+            float temp_offsetY = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetY);
 
             if (isLocking)
             {
-                Vector3 v = Vector3.up;
-                if (weapon.GetObjectPosition(ref v, targetTag))
-                {
-                    Vector3 temp_direction = v - transform.position;
-                    temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y);
-                }
+                Vector3 targetLocation = EmpireanMath.GetTarget(transform.position, targetTag, true);
+                Vector3 temp_direction = targetLocation - transform.position;
+                temp_angle = temp_angle - EmpireanMath.GetAngleFromPoint(temp_direction.x, temp_direction.y);
+
             }
 
             if (isOrbiting)
             {
                 Vector3 temp_direction = transform.position - transform.parent.position;
-                temp_angle = temp_angle - GetAngleFromPoint(temp_direction.x, temp_direction.y);
+                temp_angle = temp_angle - EmpireanMath.GetAngleFromPoint(temp_direction.x, temp_direction.y);
             }
             
             temp_angle = isInverted ? temp_angle + 180 : temp_angle;
@@ -88,7 +86,7 @@ public class WeaponController : MonoBehaviour
             for (int j = 0; j < primaryTurretCount; j++)
             {
                 Vector3 position = weapon.transform.position + new Vector3(temp_offsetX, temp_offsetY, 0);
-                Vector3 direction = GetDirectionFromAngle(temp_angle).normalized;
+                Vector3 direction = EmpireanMath.GetDirectionFromAngle(temp_angle).normalized;
 
                 MissileProperties missile = new MissileProperties
                 (
@@ -105,7 +103,6 @@ public class WeaponController : MonoBehaviour
 
                 weapon.Shoot(missile);
 
-                
                 temp_angle += fixedSpread;
                 temp_offsetX += isInverted ? offsetX : -offsetX;
                 temp_offsetY += isInverted ? offsetY : -offsetY;
@@ -115,13 +112,9 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public static float GetAngleFromPoint(float x, float y)
+    void Shoot()
     {
-        return Mathf.Atan2(x, y) * Mathf.Rad2Deg;
+        StartCoroutine("ShootingController");
     }
 
-    public static Vector3 GetDirectionFromAngle(float angle)
-    {
-        return new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0);
-    }
 }

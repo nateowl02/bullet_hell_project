@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Unit))]
 public class BorrowedTimeCast : MonoBehaviour
 {
-    TimeJuiceUI timeJuiceUi;
-    Unit unit;
     public Transform borrowedTimeShield;
     public float drainDelay = 0.25f;
+
+    // 
+    TimeJuiceUI timeJuiceUi;
+    Unit unit;
     float drainCounter;
     bool isShielded = false;
+    //
+
     void Start()
     {
         timeJuiceUi = FindObjectOfType<TimeJuiceUI>();
-        unit = GetComponent<Unit>();
-        
+        unit = GetComponent<Unit>(); 
     }
 
     void Update()
     {
-
         if (isShielded && !timeJuiceUi.isJuiceEmpty())
         {
             if (Time.time > drainCounter)
@@ -49,6 +52,4 @@ public class BorrowedTimeCast : MonoBehaviour
             borrowedTimeShield.gameObject.SetActive(false);
         }
     }
-
-
 }
