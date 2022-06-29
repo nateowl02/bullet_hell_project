@@ -7,6 +7,7 @@ public class ScoreUnit : MonoBehaviour
     //
     Unit unit;
     ScoreUI scoreUI;
+    
     //
 
     void Start()
@@ -18,6 +19,7 @@ public class ScoreUnit : MonoBehaviour
 
     void IncreaseScore()
     {
-        scoreUI.AddScore(score);
+        PolaritySystem polarity = GetComponent<PolaritySystem>();
+        scoreUI.AddScore(score, polarity.currentPolarity);
     }
 }

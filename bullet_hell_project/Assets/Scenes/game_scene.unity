@@ -776,6 +776,10 @@ PrefabInstance:
       propertyPath: isFixed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337379543910647425, guid: 6de05755592b51041b4522b799f83ef0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6de05755592b51041b4522b799f83ef0, type: 3}
 --- !u!1 &559059710
@@ -974,10 +978,6 @@ PrefabInstance:
     - target: {fileID: 965296390433219224, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
       propertyPath: m_Name
       value: Irys
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146955997722040277, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
