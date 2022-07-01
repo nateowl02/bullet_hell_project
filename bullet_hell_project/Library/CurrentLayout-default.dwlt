@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1161.6
     height: 806.4
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1161.6
     height: 756.4
-  m_MinSize: {x: 678, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 677, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 102
+  controlID: 109
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 604.8
     height: 484.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 14}
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 308
     height: 756.4
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: be0c0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 40fbffff60fbffff62fbffff
+      m_ExpandedIDs: 60fbffff62fbffff3e4300005a430000664300008c430000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -458,9 +458,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.90391344, y: -1.0248585, z: -3.8586636}
+    m_Target: {x: -0.4523233, y: 3.2351353, z: -0.065451525}
     speed: 2
-    m_Value: {x: -0.90391344, y: -1.0248585, z: -3.8586636}
+    m_Value: {x: -0.43528542, y: 3.2361362, z: -0.06063827}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -511,9 +511,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.898692
+    m_Target: 1.1177454
     speed: 2
-    m_Value: 4.898692
+    m_Value: 1.0696129
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -576,22 +576,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Unit
+    - Assets/Scripts/Weapon
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Unit
+  - Assets/Scripts/Weapon
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Projects\bullet_hell_project\bullet_hell_project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 137.39996}
-    m_SelectedIDs: be4a0000
-    m_LastClickedID: 19134
-    m_ExpandedIDs: 000000009e440000a0440000a2440000a4440000a6440000a8440000aa440000ac44000000ca9a3b
+    scrollPos: {x: 0, y: 185.39996}
+    m_SelectedIDs: e8440000
+    m_LastClickedID: 17640
+    m_ExpandedIDs: 00000000b2440000b4440000b6440000b8440000ba440000bc440000be440000c044000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e440000a0440000a2440000a4440000a6440000a8440000aa440000ac440000
+    m_ExpandedIDs: 00000000b2440000b4440000b6440000b8440000ba440000bc440000be440000c0440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -732,7 +732,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 331.2
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0

@@ -66,7 +66,11 @@ public class Missile : MonoBehaviour
                 }
                 
                 if (tagDamage == "Player")
+                {
                     if (polarity.currentPolarity != currentPolarity) unit.Damage(damage);
+                    else GameObject.FindObjectOfType<HopeUI>().OnAbsorb(currentPolarity);
+                    
+                }
                 
             }
             else
