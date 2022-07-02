@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 1
-  secondaryTurretCount: 1
+  secondaryTurretCount: 5
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
   fixedSpread: 0
@@ -310,9 +310,9 @@ MonoBehaviour:
   targetTag: Player
   offsetX: 0
   offsetY: 0
-  isInverted: 0
-  isLocking: 1
-  isFixed: 0
+  isInverted: 1
+  isLocking: 0
+  isFixed: 1
   isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0

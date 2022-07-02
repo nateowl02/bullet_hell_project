@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 2
+  primaryTurretCount: 1
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
@@ -53,7 +53,7 @@ MonoBehaviour:
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
-  initialDelay: 1
+  initialDelay: 0
   targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
-  initialDelay: 1
+  initialDelay: 0
   targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 2
+  primaryTurretCount: 4
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 1
+  primaryTurretCount: 3
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 2
+  primaryTurretCount: 7
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
@@ -945,7 +945,7 @@ MonoBehaviour:
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
-  initialDelay: 1
+  initialDelay: 0
   targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 2
+  primaryTurretCount: 6
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
-  initialDelay: 1
+  initialDelay: 0
   targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryTurretCount: 3
+  primaryTurretCount: 5
   secondaryTurretCount: 4
   primaryRateOfFire: 1
   secondaryRateOfFire: 0.1
