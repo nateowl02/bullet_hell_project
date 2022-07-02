@@ -47,4 +47,9 @@ public class HopeUI : MonoBehaviour
 
     }
 
+    public int GetCurrentLevel(int numberOfUpgrades)
+    {
+        return (int) Mathf.Round((currentHope / maxHope) * numberOfUpgrades) - 1;
+    }
+
 }
