@@ -96,7 +96,9 @@ public class Missile : MonoBehaviour
         }
         
         direction = EmpireanMath.GetTargetDirection(transform.position, direction, tagDamage, true);
+        
         rotation = 180;
         rotation = rotation - EmpireanMath.GetAngleFromPoint(direction.x, direction.y);
+        
     }
 }

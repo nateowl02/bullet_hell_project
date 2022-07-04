@@ -26,10 +26,10 @@ public class WeaponController : MonoBehaviour
 
     [Space]
     [Header("Weapon Modes")]
-    public bool isInverted = false;
-    public bool isLocking = false;
     public bool isFixed = true;
+    public bool isLocking = false;
     public bool isOrbiting = false;
+    public bool isInverted = false;
 
     [Space]
     [Header("Bullet Special")]

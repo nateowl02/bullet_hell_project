@@ -544,7 +544,7 @@ MonoBehaviour:
   despairMeter: {fileID: 902260039}
   hopeValue: {fileID: 105607055}
   despairValue: {fileID: 1238217735}
-  maxHope: 150
+  maxHope: 200
   currentHope: 0
 --- !u!114 &314632231
 MonoBehaviour:
@@ -1116,9 +1116,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Irys
       objectReference: {fileID: 0}
-    - target: {fileID: 2042675249395421289, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6550627980042154570, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
+      propertyPath: endSpread
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550627980042154570, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
+      propertyPath: startSpread
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027570475420308942, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}
+      propertyPath: endSpread
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}

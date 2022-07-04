@@ -24,7 +24,7 @@ public class EmpireanMath
     {
         GameObject[] target = GameObject.FindGameObjectsWithTag(targetTag);
         target = isClosest ? GetSortedArray(origin, target) : target;
-        return target.Length > 0 ? (target[0].transform.position - originalDirection).normalized : originalDirection;
+        return target.Length > 0 ? (target[0].transform.position - origin).normalized : originalDirection;
     }
 
     static GameObject[] GetSortedArray(Vector3 origin, GameObject[] gameObject)
