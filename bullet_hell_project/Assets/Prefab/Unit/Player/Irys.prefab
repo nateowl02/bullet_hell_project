@@ -45,25 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 60
   endSpread: 60
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &325962030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,25 +127,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &491734715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,25 +209,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 1
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &872134351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,25 +291,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 3
-  secondaryTurretCount: 1
   primaryRateOfFire: 5
+  secondaryTurretCount: 1
   secondaryRateOfFire: 0.1
-  fixedSpread: 15
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 10
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.4
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &982217904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,25 +644,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 1
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 60
   endSpread: 60
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &7099752399328468852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,25 +726,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 120
   endSpread: 120
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &6944854363006530006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,25 +808,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &3642982102525115046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,25 +1023,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &713359657898031546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,25 +1105,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 60
   endSpread: 60
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &3836077619340123859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,25 +1187,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &3454919943647068060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,25 +1335,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &8657253604937428246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,25 +1417,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 0.75
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 45
-  endSpread: 90
+  endSpread: 75
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &6857659643959791358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,25 +1499,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 1
-  secondaryTurretCount: 4
   primaryRateOfFire: 3
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.3
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 80
   endSpread: 100
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 1
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 1
   trackingDelay: 0.2
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &1657180441275546296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,25 +1616,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 1
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 120
   endSpread: 120
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &2934206557149006721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,25 +1794,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &2832629267316455474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,25 +1910,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 120
   endSpread: 120
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &9142624495815516008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,25 +1992,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &4922624673610394919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,25 +2074,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 60
   endSpread: 60
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &4076767261571070507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,25 +2156,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 0.75
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 135
-  endSpread: 90
+  endSpread: 105
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &6728528759969597725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2276,25 +2238,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 5
-  secondaryTurretCount: 1
   primaryRateOfFire: 3
+  secondaryTurretCount: 1
   secondaryRateOfFire: 0.1
-  fixedSpread: 15
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 10
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.4
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &7075077076397736098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,25 +2419,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 90
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &7860810107013573729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,25 +2501,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &7397689281891486986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,25 +2614,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 0
   endSpread: 0
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &5806361748216019080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2742,25 +2696,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryTurretCount: 2
-  secondaryTurretCount: 4
   primaryRateOfFire: 1
+  secondaryTurretCount: 4
   secondaryRateOfFire: 0.1
-  fixedSpread: 0
+  startAngle: 0
   startSpread: 120
   endSpread: 120
   startSpeed: 7
   endSpeed: 7
   initialDelay: 0
-  targetTag: Enemy
   offsetX: 0.2
   offsetY: 0
   isInverted: 0
-  isLocking: 0
-  isFixed: 0
-  isOrbiting: 0
   isDelayedTracking: 0
   trackingDelay: 0
-  isRetaliating: 0
+  isHoming: 0
+  homingDelay: 0
+  movementDelay: 0
 --- !u!114 &6550668691268502421
 MonoBehaviour:
   m_ObjectHideFlags: 0

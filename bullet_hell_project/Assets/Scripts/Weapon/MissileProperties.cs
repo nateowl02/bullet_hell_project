@@ -10,11 +10,10 @@ public class MissileProperties
     float _damage { get; }
     string _damageTag { get; }
     float _spread { get; }
-    float _initialDelay { get; }
-    bool _isDelayedTracking { get; }
     float _trackingDelay { get; }
-
-    bool _isPiercing { get; }
+    float _homingDelay { get; }
+    float _homingInterval { get; }
+    float _homingDistance { get; }
 
     public Vector3 Position
     {
@@ -56,19 +55,24 @@ public class MissileProperties
         get { return _spread; }
     }
 
-    public float InitialDelay
-    {
-        get { return _initialDelay; }
-    }
-
-    public bool IsDelayedTracking
-    {
-        get { return _isDelayedTracking; }
-    }
-
     public float TrackingDelay
     {
         get { return _trackingDelay;  }
+    }
+
+    public float HomingDelay
+    {
+        get { return _homingDelay; }
+    }
+
+    public float HomingInterval
+    {
+        get { return _homingInterval; }
+    }
+
+    public float HomingDistance
+    {
+        get { return _homingDistance; }
     }
 
     public MissileProperties(Vector3 position = default(Vector3), 
@@ -79,9 +83,10 @@ public class MissileProperties
                              float damage = 0, 
                              string damageTag = "", 
                              float spread = 0,
-                             float initialDelay = 0,
-                             bool isDelayedTracking = false,
-                             float trackingDelay = 0) 
+                             float trackingDelay = 0,
+                             float homingDelay = 0.0f,
+                             float homingInterval = 0.0f,
+                             float homingDistance = 0.0f) 
     {
         _position = position;
         _direction = direction;
@@ -91,9 +96,10 @@ public class MissileProperties
         _damage = damage;
         _damageTag = damageTag;
         _spread = spread;
-        _initialDelay = initialDelay;
-        _isDelayedTracking = isDelayedTracking;
         _trackingDelay = trackingDelay;
+        _homingDelay = homingDelay;
+        _homingInterval = homingInterval;
+        _homingDistance = homingDistance;
     }
 
 }

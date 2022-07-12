@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
@@ -15,28 +14,46 @@ public class Weapon : MonoBehaviour
     public float maxRange;
     public bool isPiercing = false;
     public bool isPolarized = false;
-    PolaritySystem.Polarity polarity;
+    public float movementDelay = 0.0f;
 
     //
+    PolaritySystem.Polarity polarity;
     PolaritySystem unitPolarity;
     //
 
     public void Shoot(MissileProperties missileProperties) 
     {
         unitPolarity = gameObject.GetComponentInParent<PolaritySystem>();
+
         Missile bullet = Instantiate(isPolarized ? unitPolarity.currentPolarity == PolaritySystem.Polarity.hope ? hope : despair : normalMissile, missileProperties.Position, Quaternion.identity);
-        bullet.direction = missileProperties.Direction;
+
+        // Range
+        bullet.rangeMax = maxRange;
+        bullet.homingDistance = missileProperties.HomingDistance;
+
+        /// Speed
         bullet.speedStart = missileProperties.StartSpeed;
         bullet.speedEnd = missileProperties.EndSpeed;
-        bullet.rotation = missileProperties.Spread;
+
+        // Damage
         bullet.damage = damage;
         bullet.tagDamage = damageTag;
-        bullet.rangeMax = maxRange;
-        bullet.isDelayedTracking = missileProperties.IsDelayedTracking;
+
+        // Direction
+        bullet.direction = missileProperties.Direction;
+
+        // Rotation
+        bullet.rotation = missileProperties.Spread;
+
+        // Delay
         bullet.trackingDelay = missileProperties.TrackingDelay;
+        bullet.movementDelay = movementDelay;
+        bullet.homingDelay = missileProperties.HomingDelay;
+        bullet.homingInterval = missileProperties.HomingInterval;
+
+        // Polarity
         bullet.isPiercing = isPiercing;
         bullet.isPolarized = isPolarized;
         bullet.currentPolarity = isPolarized ? unitPolarity.currentPolarity : PolaritySystem.Polarity.none;
-        bullet.TrackingDelay();
     }
 }

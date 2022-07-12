@@ -27,6 +27,8 @@ public class UnitBehavior : MonoBehaviour
 
     IEnumerator MoveToLocation()
     {
+        yield return new WaitForSeconds(delay);
+        /*
         Vector3 targetLocation = EmpireanMath.GetTarget(transform.position, "Player", true);
 
         while (behavior == BehaviorTypes.Intercepting)
@@ -65,6 +67,7 @@ public class UnitBehavior : MonoBehaviour
             }
             yield return null;
         }
+        */
 
     }
 }

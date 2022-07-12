@@ -6,18 +6,30 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [Space]
-    [Header("Weapon Properties")]
+    [Header("Weapon Specs")]
     public int primaryTurretCount;
     public int secondaryTurretCount;
-    public float primaryRateOfFire;
-    public float secondaryRateOfFire;
-    public float fixedSpread;
+   
+    [Space]
+    [Header("Initial Spread")]
+    public float startAngle;
+    public float endAngle;
+
+    [Space]
+    [Header("Secondary Spread")]
     public float startSpread;
     public float endSpread;
+
+    [Space]
+    [Header("Speed")]
     public float startSpeed;
     public float endSpeed;
+
+    [Space]
+    [Header("Delay")]
     public float initialDelay;
-    public string targetTag;
+    public float primaryRateOfFire;
+    public float secondaryRateOfFire;
 
     [Space]
     [Header("Offset")]
@@ -26,16 +38,14 @@ public class WeaponController : MonoBehaviour
 
     [Space]
     [Header("Weapon Modes")]
-    public bool isFixed = true;
-    public bool isLocking = false;
-    public bool isOrbiting = false;
     public bool isInverted = false;
 
     [Space]
-    [Header("Bullet Special")]
-    public bool isDelayedTracking = false;
-    public float trackingDelay;
-    public bool isRetaliating = false;
+    [Header("Delay")]
+    public float trackingDelay = 1000f;
+    public float homingDelay = 0.0f;
+    public float homingInterval = 0.0f;
+    public float homingDistance = 1.0f;
 
     Weapon weapon;
     float fireCounter;
@@ -49,44 +59,44 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Time.time >= fireCounter)
         {
             Shoot();
             fireCounter = Time.time + primaryRateOfFire;
         }
+        */
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
 
-    IEnumerator ShootingController()
+    void Shoot()
+    {
+        StartCoroutine("FiringController");
+    }
+
+    IEnumerator FiringController()
     {
 
         for (int i = 0; i < secondaryTurretCount; i++)
         {
-            float temp_angle = isFixed ? EmpireanMath.GetStartingAngle(primaryTurretCount, fixedSpread, 90) : EmpireanMath.GetStartingAngle(primaryTurretCount, fixedSpread, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)));
+
+            float[] angles = EmpireanMath.GetAngles(primaryTurretCount, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)), Mathf.Lerp(startAngle, endAngle, (float)i / (float)(secondaryTurretCount - 1)));
+
             float temp_offsetX = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetX);
             float temp_offsetY = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetY);
-
-            if (isLocking)
-            {
-                Vector3 targetLocation = EmpireanMath.GetTarget(transform.position, targetTag, true);
-                Vector3 temp_direction = targetLocation - transform.position;
-                temp_angle = temp_angle - EmpireanMath.GetAngleFromPoint(temp_direction.x, temp_direction.y);
-
-            }
-
-            if (isOrbiting)
-            {
-                Vector3 temp_direction = transform.position - transform.parent.position;
-                temp_angle = temp_angle - EmpireanMath.GetAngleFromPoint(temp_direction.x, temp_direction.y);
-            }
             
-            temp_angle = isInverted ? temp_angle + 180 : temp_angle;
             temp_offsetX = isInverted ? temp_offsetX * -1 : temp_offsetX;
             temp_offsetY = isInverted ? temp_offsetY * -1 : temp_offsetY;
 
             for (int j = 0; j < primaryTurretCount; j++)
             {
+                angles[j] = isInverted ? angles[j] + 180 : angles[j];
+
                 Vector3 position = weapon.transform.position + new Vector3(temp_offsetX, temp_offsetY, 0);
-                Vector3 direction = EmpireanMath.GetDirectionFromAngle(temp_angle).normalized;
+                Vector3 direction = EmpireanMath.GetDirectionFromAngle(angles[j]).normalized;
 
                 MissileProperties missile = new MissileProperties
                 (
@@ -94,27 +104,21 @@ public class WeaponController : MonoBehaviour
                     position: position,
                     startSpeed: startSpeed,
                     endSpeed: endSpeed,
-                    spread: temp_angle + 90,
-                    isDelayedTracking: isDelayedTracking,
-                    trackingDelay: trackingDelay
+                    spread: angles[j] + 90,
+                    trackingDelay: trackingDelay,
+                    homingDelay: homingDelay,
+                    homingInterval: homingInterval,
+                    homingDistance: homingDistance
                 );
-
-                object[] parms = { position, direction };
 
                 weapon.Shoot(missile);
 
-                temp_angle += fixedSpread;
                 temp_offsetX += isInverted ? offsetX : -offsetX;
                 temp_offsetY += isInverted ? offsetY : -offsetY;
             }
 
             yield return new WaitForSeconds(secondaryRateOfFire);
         }
-    }
-
-    void Shoot()
-    {
-        StartCoroutine("ShootingController");
     }
 
 }
