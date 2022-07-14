@@ -39,16 +39,19 @@ public class WeaponController : MonoBehaviour
     [Space]
     [Header("Weapon Modes")]
     public bool isInverted = false;
+    public bool isLocking = false;
 
     [Space]
     [Header("Delay")]
-    public float trackingDelay = 1000f;
     public float homingDelay = 0.0f;
     public float homingInterval = 0.0f;
     public float homingDistance = 1.0f;
 
     Weapon weapon;
     float fireCounter;
+    float aimAdjustment;
+    float stepCount;
+    float progress;
 
     void Start()
     {
@@ -59,6 +62,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+
         /*
         if (Time.time >= fireCounter)
         {
@@ -66,7 +70,8 @@ public class WeaponController : MonoBehaviour
             fireCounter = Time.time + primaryRateOfFire;
         }
         */
-        if (Input.GetKeyUp(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             Shoot();
         }
@@ -80,10 +85,25 @@ public class WeaponController : MonoBehaviour
     IEnumerator FiringController()
     {
 
+        stepCount = (float) secondaryTurretCount / ((float)secondaryTurretCount-1);
+        
         for (int i = 0; i < secondaryTurretCount; i++)
         {
+            if (isLocking)
+            {
+                Vector3 targetDirection = EmpireanMath.GetTargetDirection(transform.position, transform.position, weapon.damageTag, true);
+                aimAdjustment = EmpireanMath.GetAngleFromPoint(targetDirection.x, targetDirection.y);
 
-            float[] angles = EmpireanMath.GetAngles(primaryTurretCount, Mathf.Lerp(startSpread, endSpread, (float)i / (float)(secondaryTurretCount - 1)), Mathf.Lerp(startAngle, endAngle, (float)i / (float)(secondaryTurretCount - 1)));
+            }
+
+            progress = ((float)i * stepCount) / (float)secondaryTurretCount;
+
+            float[] angles = EmpireanMath.GetAngles(
+                    primaryTurretCount, 
+                    Mathf.Lerp(startSpread, endSpread, progress), 
+                    Mathf.Lerp(startAngle, endAngle, progress),
+                    aimAdjustment
+                );
 
             float temp_offsetX = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetX);
             float temp_offsetY = EmpireanMath.GetStartingOffset(primaryTurretCount, offsetY);
@@ -105,7 +125,6 @@ public class WeaponController : MonoBehaviour
                     startSpeed: startSpeed,
                     endSpeed: endSpeed,
                     spread: angles[j] + 90,
-                    trackingDelay: trackingDelay,
                     homingDelay: homingDelay,
                     homingInterval: homingInterval,
                     homingDistance: homingDistance

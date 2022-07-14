@@ -44,7 +44,7 @@ public class EmpireanMath
         return new Vector3(Random.Range(-GameRules.screenWidth, GameRules.screenWidth), Random.Range(GameRules.screenHeight, GameRules.screenHeight / 2), 0);
     }
 
-    public static float[] GetAngles(int turretCount, float spread, float startAngle)
+    public static float[] GetAngles(int turretCount, float spread, float startAngle, float aimAdjustment = 0)
     {
         List<float> angles = new List<float>();
 
@@ -55,8 +55,8 @@ public class EmpireanMath
 
         for (int i = 0; i < turretCount; i++)
         {
-            angles.Add(startAngle);
-            startAngle += spread;
+            angles.Add(startAngle - aimAdjustment);
+            startAngle += spread ;
         }
 
         return angles.ToArray();

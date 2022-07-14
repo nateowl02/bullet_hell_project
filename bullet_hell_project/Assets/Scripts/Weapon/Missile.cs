@@ -18,7 +18,6 @@ public class Missile : MonoBehaviour
     // roation
     public float rotation;
     // delay
-    public float trackingDelay;
     public float movementDelay;
     public float homingDelay;
     public float homingInterval;
@@ -30,7 +29,6 @@ public class Missile : MonoBehaviour
     public PolaritySystem.Polarity currentPolarity;
 
     // counters
-    float trackingCounter;
     float homingCounter;
     float rangeCounter;
     float movementCounter;
@@ -40,8 +38,7 @@ public class Missile : MonoBehaviour
     private void Start()
     {
         movementCounter = Time.time + movementDelay;
-        trackingCounter =  Time.time + trackingDelay;
-        homingCounter = Time.time + trackingDelay + homingDelay;
+        homingCounter = Time.time + homingDelay;
         StartCoroutine("DirectionCorrection");
     }
 
@@ -105,13 +102,6 @@ public class Missile : MonoBehaviour
    
     IEnumerator DirectionCorrection() 
     {
-
-        while (Time.time < trackingCounter)
-        {
-            
-            yield return null;
-        }
-
         while (Time.time < homingCounter)
         {
             yield return null;

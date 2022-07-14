@@ -46,7 +46,6 @@ public class Weapon : MonoBehaviour
         bullet.rotation = missileProperties.Spread;
 
         // Delay
-        bullet.trackingDelay = missileProperties.TrackingDelay;
         bullet.movementDelay = movementDelay;
         bullet.homingDelay = missileProperties.HomingDelay;
         bullet.homingInterval = missileProperties.HomingInterval;

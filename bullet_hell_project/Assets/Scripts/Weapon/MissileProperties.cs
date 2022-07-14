@@ -83,7 +83,6 @@ public class MissileProperties
                              float damage = 0, 
                              string damageTag = "", 
                              float spread = 0,
-                             float trackingDelay = 0,
                              float homingDelay = 0.0f,
                              float homingInterval = 0.0f,
                              float homingDistance = 0.0f) 
@@ -96,7 +95,6 @@ public class MissileProperties
         _damage = damage;
         _damageTag = damageTag;
         _spread = spread;
-        _trackingDelay = trackingDelay;
         _homingDelay = homingDelay;
         _homingInterval = homingInterval;
         _homingDistance = homingDistance;
