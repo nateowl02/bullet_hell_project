@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using System;
 
 [RequireComponent(typeof(Weapon))]
 public class WeaponController : MonoBehaviour
@@ -40,6 +40,7 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Modes")]
     public bool isInverted = false;
     public bool isLocking = false;
+    public bool isCycling = false;
 
     [Space]
     [Header("Delay")]
@@ -63,18 +64,16 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
 
-        /*
         if (Time.time >= fireCounter)
         {
             Shoot();
             fireCounter = Time.time + primaryRateOfFire;
         }
-        */
-
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
+        
+        /*
+        if (Input.GetKeyDown(KeyCode.Space))
             Shoot();
-        }
+        */
     }
 
     void Shoot()
@@ -84,6 +83,11 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator FiringController()
     {
+        if (isCycling)
+        {
+            (startAngle, endAngle) = (endAngle, startAngle);
+            (startSpread, endSpread) = (endSpread, startSpread);
+        }
 
         stepCount = (float) secondaryTurretCount / ((float)secondaryTurretCount-1);
         
@@ -97,6 +101,7 @@ public class WeaponController : MonoBehaviour
             }
 
             progress = ((float)i * stepCount) / (float)secondaryTurretCount;
+            
 
             float[] angles = EmpireanMath.GetAngles(
                     primaryTurretCount, 
