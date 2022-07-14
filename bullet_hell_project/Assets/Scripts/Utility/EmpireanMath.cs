@@ -48,11 +48,10 @@ public class EmpireanMath
     {
         List<float> angles = new List<float>();
 
+        startAngle -= spread * (turretCount / 2);
         if (turretCount % 2 == 0)
-            startAngle += spread / 2;
-        else
-            startAngle -= spread * (turretCount/2);
-
+            startAngle += (spread / 2);
+            
         for (int i = 0; i < turretCount; i++)
         {
             angles.Add(startAngle - aimAdjustment);
