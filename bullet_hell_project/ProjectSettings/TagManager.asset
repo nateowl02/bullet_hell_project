@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - TimeLoop
-  - TimeJuice
   layers:
   - Default
   - TransparentFX
@@ -49,4 +47,7 @@ TagManager:
     locked: 0
   - name: GameObjects
     uniqueID: 1433987923
+    locked: 0
+  - name: Shield
+    uniqueID: 1869646729
     locked: 0

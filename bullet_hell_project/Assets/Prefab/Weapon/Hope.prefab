@@ -47,16 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 8413054031222542621}
   rangeMax: 0
-  rangeCurrent: 0
+  homingDistance: 0
   speedStart: 0
   speedEnd: 0
   damage: 0
-  direction: {x: 0, y: 0, z: 0}
   tagDamage: 
+  direction: {x: 0, y: 0, z: 0}
   rotation: 0
-  initialDelay: 0
-  isDelayedTracking: 0
-  trackingDelay: 0
+  movementDelay: 0
+  homingDelay: 0
+  homingInterval: 0
   isPiercing: 0
   isPolarized: 0
   currentPolarity: 0
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 8413054031222542622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8413054030978264132}
   m_RootOrder: 0
@@ -128,7 +128,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -153,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2c9ec5d4d56d774ca7a4a2101e1a7c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,6 +176,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.97}
+  m_Offset: {x: 0, y: -0.00000011920929}
+  m_Size: {x: 1, y: 1.0038028}
   m_Direction: 0

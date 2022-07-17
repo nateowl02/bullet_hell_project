@@ -1,6 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(fileName = "Weapon Type", menuName = "Weapon Type")]
+public class WeaponType : ScriptableObject
 {
     [Header("Missile Art")]
     public Missile normalMissile;
@@ -16,43 +17,46 @@ public class Weapon : MonoBehaviour
     public bool isPolarized = false;
     public float movementDelay = 0.0f;
 
-    //
-    PolaritySystem.Polarity polarity;
-    PolaritySystem unitPolarity;
-    //
+    [Space]
+    [Header("Weapon Specs")]
+    public int primaryTurretCount;
+    public int secondaryTurretCount;
 
-    public void Shoot(MissileProperties missileProperties) 
-    {
-        unitPolarity = gameObject.GetComponentInParent<PolaritySystem>();
+    [Space]
+    [Header("Initial Spread")]
+    public float startAngle;
+    public float endAngle;
 
-        Missile bullet = Instantiate(isPolarized ? unitPolarity.currentPolarity == PolaritySystem.Polarity.hope ? hope : despair : normalMissile, missileProperties.Position, Quaternion.identity);
+    [Space]
+    [Header("Secondary Spread")]
+    public float startSpread;
+    public float endSpread;
 
-        // Range
-        bullet.rangeMax = maxRange;
-        bullet.homingDistance = missileProperties.HomingDistance;
+    [Space]
+    [Header("Speed")]
+    public float startSpeed;
+    public float endSpeed;
 
-        /// Speed
-        bullet.speedStart = missileProperties.StartSpeed;
-        bullet.speedEnd = missileProperties.EndSpeed;
+    [Space]
+    [Header("Delay")]
+    public float initialDelay;
+    public float primaryRateOfFire;
+    public float secondaryRateOfFire;
 
-        // Damage
-        bullet.damage = damage;
-        bullet.tagDamage = damageTag;
+    [Space]
+    [Header("Offset")]
+    public float offsetX;
+    public float offsetY;
 
-        // Direction
-        bullet.direction = missileProperties.Direction;
+    [Space]
+    [Header("Weapon Modes")]
+    public bool isInverted = false;
+    public bool isLocking = false;
+    public bool isCycling = false;
 
-        // Rotation
-        bullet.rotation = missileProperties.Spread;
-
-        // Delay
-        bullet.movementDelay = movementDelay;
-        bullet.homingDelay = missileProperties.HomingDelay;
-        bullet.homingInterval = missileProperties.HomingInterval;
-
-        // Polarity
-        bullet.isPiercing = isPiercing;
-        bullet.isPolarized = isPolarized;
-        bullet.currentPolarity = isPolarized ? unitPolarity.currentPolarity : PolaritySystem.Polarity.none;
-    }
+    [Space]
+    [Header("Delay")]
+    public float homingDelay = 0.0f;
+    public float homingInterval = 0.0f;
+    public float homingDistance = 1.0f;
 }

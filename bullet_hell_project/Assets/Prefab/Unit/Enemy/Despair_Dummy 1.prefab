@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4014973956834781852}
   - component: {fileID: 2545905288811022035}
   - component: {fileID: 6870547688771327211}
-  - component: {fileID: 4014973956834781855}
   - component: {fileID: 4014973956834781824}
+  - component: {fileID: 8545120811708739840}
   m_Layer: 0
   m_Name: Despair_Dummy 1
   m_TagString: Enemy
@@ -35,7 +35,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4014973958042965382}
-  - {fileID: 9010529213259108683}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,22 +113,6 @@ MonoBehaviour:
   hope: {fileID: 8413054030978264132, guid: 183e678875dbf144493953359945e32f, type: 3}
   despair: {fileID: 8413054030978264132, guid: 0ffb48425a4acf142920ddcfcfea1706, type: 3}
   currentPolarity: 1
---- !u!70 &4014973956834781855
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014973956834781850}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.23, y: 0.61}
-  m_Direction: 0
 --- !u!50 &4014973956834781824
 Rigidbody2D:
   serializedVersion: 4
@@ -151,6 +134,34 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!60 &8545120811708739840
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014973956834781850}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.32349014, y: 0.19117075}
+      - {x: -0.33280668, y: 0.19082335}
+      - {x: -0.0033963174, y: -0.37134093}
 --- !u!1 &4014973958042965381
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 4014973958042965381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: -0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 4014973956834781851}
   m_RootOrder: 0
@@ -197,7 +208,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -222,98 +232,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57cc15ff09e8fec4c80af91e3af54757, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8337379543910647425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9010529213259108683}
-  - component: {fileID: 7141300118977487933}
-  - component: {fileID: 4965912209378217134}
-  m_Layer: 0
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9010529213259108683
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8337379543910647425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.322, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4014973956834781851}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7141300118977487933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8337379543910647425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447fdb3d78bd31d4389835d95d27a7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalMissile: {fileID: 6612458835711573515, guid: 6a1cb0cbdc58ede4cbb7430c995e0ec5, type: 3}
-  hope: {fileID: 6612458835711573515, guid: 183e678875dbf144493953359945e32f, type: 3}
-  despair: {fileID: 6612458835711573515, guid: 0ffb48425a4acf142920ddcfcfea1706, type: 3}
-  damage: 1
-  damageTag: Player
-  maxRange: 15
-  isPiercing: 0
-  isPolarized: 1
---- !u!114 &4965912209378217134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8337379543910647425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d032e9edda5604187292590055890a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaryTurretCount: 1
-  secondaryTurretCount: 5
-  primaryRateOfFire: 1
-  secondaryRateOfFire: 0.1
-  fixedSpread: 0
-  startSpread: 0
-  endSpread: 0
-  startSpeed: 5
-  endSpeed: 5
-  initialDelay: 1
-  targetTag: Player
-  offsetX: 0
-  offsetY: 0
-  isInverted: 1
-  isLocking: 0
-  isFixed: 1
-  isOrbiting: 0
-  isDelayedTracking: 0
-  trackingDelay: 0
-  isRetaliating: 0
