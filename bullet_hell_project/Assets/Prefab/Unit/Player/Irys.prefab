@@ -476,7 +476,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2201783846876311455}
-  - component: {fileID: 2182555209036796011}
   m_Layer: 0
   m_Name: Twin Shot
   m_TagString: Untagged
@@ -498,19 +497,6 @@ Transform:
   m_Father: {fileID: 6862075715762934417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2182555209036796011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077213752065685878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0622693c8427dab4c8d4d7cfc0ffca85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: b47f138697ad64e4db403e1409645231, type: 2}
 --- !u!1 &7233613320287692090
 GameObject:
   m_ObjectHideFlags: 0

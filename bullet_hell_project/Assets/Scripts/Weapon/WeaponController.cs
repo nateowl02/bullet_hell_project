@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class WeaponTypeController : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
-    public WeaponType weaponType;
+    public Weapon weaponType;
 
     float fireCounter;
     float aimAdjustment;
