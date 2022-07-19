@@ -24,8 +24,11 @@ MonoBehaviour:
   movementDelay: 0
   primaryTurretCount: 2
   secondaryTurretCount: 5
-  startAngle: 270
-  endAngle: 270
+  startInitialAngle: 270
+  endInitialAngle: 270
+  curveAngle: []
+  startFinalAngle: 270
+  endFinalAngle: 270
   startSpread: 0
   endSpread: 0
   startSpeed: 7

@@ -48,10 +48,12 @@ public class WeaponController : MonoBehaviour
         {
             if (weaponType.isLocking)
             {
-                Vector3 targetDirection = EmpireanMath.GetTargetDirection(transform.position, transform.position, weaponType.damageTag, true);
+                Vector3 targetDirection = EmpireanMath.GetTargetDirection(transform.position, Vector3.zero, weaponType.damageTag, true);
                 aimAdjustment = EmpireanMath.GetAngleFromPoint(targetDirection.x, targetDirection.y);
 
             }
+            else
+                aimAdjustment = 0;
 
             progress = ((float)i * stepCount) / (float)weaponType.secondaryTurretCount;
 
