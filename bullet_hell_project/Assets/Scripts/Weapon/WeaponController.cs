@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -20,7 +21,6 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-
         if (Time.time >= fireCounter)
         {
             Shoot();
@@ -37,11 +37,12 @@ public class WeaponController : MonoBehaviour
     {
         if (weaponType.isCycling)
         {
-            (weaponType.startAngle, weaponType.endAngle) = (weaponType.endAngle, weaponType.startAngle);
+            (weaponType.startInitialAngle, weaponType.endInitialAngle) = (weaponType.endInitialAngle, weaponType.startInitialAngle);
             (weaponType.startSpread, weaponType.endSpread) = (weaponType.endSpread, weaponType.startSpread);
+            (weaponType.startFinalAngle, weaponType.endFinalAngle) = (weaponType.endFinalAngle, weaponType.startFinalAngle);
         }
 
-        stepCount = (float)weaponType.secondaryTurretCount / ((float)weaponType.secondaryTurretCount - 1);
+        stepCount = (float)weaponType.secondaryTurretCount / ((float) weaponType.secondaryTurretCount - 1 == 0 ? 1 : weaponType.secondaryTurretCount - 1);
 
         for (int i = 0; i < weaponType.secondaryTurretCount; i++)
         {
@@ -55,10 +56,17 @@ public class WeaponController : MonoBehaviour
             progress = ((float)i * stepCount) / (float)weaponType.secondaryTurretCount;
 
 
-            float[] angles = EmpireanMath.GetAngles(
+            float[] startAngles = EmpireanMath.GetAngles(
                     weaponType.primaryTurretCount,
                     Mathf.Lerp(weaponType.startSpread, weaponType.endSpread, progress),
-                    Mathf.Lerp(weaponType.startAngle, weaponType.endAngle, progress),
+                    Mathf.Lerp(weaponType.startInitialAngle, weaponType.endInitialAngle, progress),
+                    aimAdjustment
+                );
+
+            float[] endAngles = EmpireanMath.GetAngles(
+                    weaponType.primaryTurretCount,
+                    Mathf.Lerp(weaponType.startSpread, weaponType.endSpread, progress),
+                    Mathf.Lerp(weaponType.startFinalAngle, weaponType.endFinalAngle, progress),
                     aimAdjustment
                 );
 
@@ -70,42 +78,54 @@ public class WeaponController : MonoBehaviour
 
             for (int j = 0; j < weaponType.primaryTurretCount; j++)
             {
-                angles[j] = weaponType.isInverted ? angles[j] + 180 : angles[j];
+                startAngles[j] = weaponType.isInverted ? startAngles[j] + 180 : startAngles[j];
 
                 Vector3 position = transform.position + new Vector3(temp_offsetX, temp_offsetY, 0);
-                Vector3 direction = EmpireanMath.GetDirectionFromAngle(angles[j]).normalized;
+                Vector3 initialDirection = EmpireanMath.GetDirectionFromAngle(startAngles[j]).normalized;
+                Vector3 finalDirection = EmpireanMath.GetDirectionFromAngle(endAngles[j]).normalized;
 
                 unitPolarity = gameObject.GetComponentInParent<PolaritySystem>();
 
-                Missile bullet = Instantiate(weaponType.isPolarized ? unitPolarity.currentPolarity == PolaritySystem.Polarity.hope ? weaponType.hope : weaponType.despair : weaponType.normalMissile, position, Quaternion.identity);
+                Projectile projectile = Instantiate(weaponType.isPolarized ? unitPolarity.currentPolarity == PolaritySystem.Polarity.hope ? weaponType.hope : weaponType.despair : weaponType.normalMissile, position, Quaternion.identity);
 
                 // Range
-                bullet.rangeMax = weaponType.maxRange;
-                bullet.homingDistance = weaponType.homingDistance;
+                projectile.rangeMax = weaponType.maxRange;
+                projectile.homingDistance = weaponType.homingDistance;
 
                 /// Speed
-                bullet.speedStart = weaponType.startSpeed;
-                bullet.speedEnd = weaponType.endSpeed;
+                projectile.speedStart = weaponType.startSpeed;
+                projectile.speedEnd = weaponType.endSpeed;
 
                 // Damage
-                bullet.damage = weaponType.damage;
-                bullet.tagDamage = weaponType.damageTag;
+                projectile.damage = weaponType.damage;
+                projectile.tagDamage = weaponType.damageTag;
 
                 // Direction
-                bullet.direction = direction;
+                projectile.direction = initialDirection;
 
                 // Rotation
-                bullet.rotation = angles[j] + 90;
+                projectile.rotation = startAngles[j] + 90;
 
                 // Delay
-                bullet.movementDelay = weaponType.movementDelay;
-                bullet.homingDelay = weaponType.homingDelay;
-                bullet.homingInterval = weaponType.homingInterval;
+                projectile.movementDelay = weaponType.movementDelay;
+                projectile.homingDelay = weaponType.homingDelay;
+                projectile.homingInterval = weaponType.homingInterval;
 
                 // Polarity
-                bullet.isPiercing = weaponType.isPiercing;
-                bullet.isPolarized = weaponType.isPolarized;
-                bullet.currentPolarity = weaponType.isPolarized ? unitPolarity.currentPolarity : PolaritySystem.Polarity.none;
+                projectile.isPiercing = weaponType.isPiercing;
+                projectile.isPolarized = weaponType.isPolarized;
+                projectile.currentPolarity = weaponType.isPolarized ? unitPolarity.currentPolarity : PolaritySystem.Polarity.none;
+
+                // curve
+                projectile.initialDirection = initialDirection;
+                projectile.finalDirection = finalDirection;
+                
+                List<Vector3> curve = new List<Vector3>();
+                for (int m = 0; m < weaponType.curveAngle.Length; m++)
+                {
+                    curve.Add(EmpireanMath.GetDirectionFromAngle(weaponType.curveAngle[m]).normalized);
+                }
+                projectile.curve = curve.ToArray();
 
                 temp_offsetX += weaponType.isInverted ? weaponType.offsetX : -weaponType.offsetX;
                 temp_offsetY += weaponType.isInverted ? weaponType.offsetY : -weaponType.offsetY;

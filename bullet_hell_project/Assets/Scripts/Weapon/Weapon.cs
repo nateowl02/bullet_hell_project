@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapon Type", menuName = "Weapon Type")]
+[CreateAssetMenu(fileName = "Weapon", menuName = "Weapon")]
 public class Weapon : ScriptableObject
 {
     [Header("Missile Art")]
-    public Missile normalMissile;
-    public Missile hope;
-    public Missile despair;
+    public Projectile normalMissile;
+    public Projectile hope;
+    public Projectile despair;
 
     [Space]
     [Header("Weapon Properties")]
@@ -23,9 +23,18 @@ public class Weapon : ScriptableObject
     public int secondaryTurretCount;
 
     [Space]
-    [Header("Initial Spread")]
-    public float startAngle;
-    public float endAngle;
+    [Header("Initial Direction")]
+    public float startInitialAngle;
+    public float endInitialAngle;
+
+    [Space]
+    [Header("Path")]
+    public float[] curveAngle;
+
+    [Space]
+    [Header("FInal Direction")]
+    public float startFinalAngle;
+    public float endFinalAngle;
 
     [Space]
     [Header("Secondary Spread")]
@@ -59,4 +68,7 @@ public class Weapon : ScriptableObject
     public float homingDelay = 0.0f;
     public float homingInterval = 0.0f;
     public float homingDistance = 1.0f;
+
+    
+    
 }
