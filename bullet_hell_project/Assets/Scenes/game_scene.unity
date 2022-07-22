@@ -716,25 +716,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &505506822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3399222586318006111, guid: e3f73892ffa1a9149ab51161cbc6b809,
-    type: 3}
-  m_PrefabInstance: {fileID: 1097279058}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &505506823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505506822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0622693c8427dab4c8d4d7cfc0ffca85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: 5ed217aff227d3a45b0fc5d972c6a203, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,22 +1108,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 148404613088806842, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 229342463633772311, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: weaponType
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e3ec8db9f78975499c1ffb2fbd52e69,
-        type: 2}
-    - target: {fileID: 652169442835911337, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 965296390433219221, guid: e3f73892ffa1a9149ab51161cbc6b809,
         type: 3}
       propertyPath: m_RootOrder
@@ -1202,38 +1167,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Irys
-      objectReference: {fileID: 0}
-    - target: {fileID: 1222029040344259715, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: weaponType
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e3ec8db9f78975499c1ffb2fbd52e69,
-        type: 2}
-    - target: {fileID: 1582978286937811027, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762724309602111521, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: weaponType
-      value: 
-      objectReference: {fileID: 11400000, guid: b6d3861ed6989bf4aa7e58f8d103f06e,
-        type: 2}
-    - target: {fileID: 4751412289599779275, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7746440993707981778, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896947800558641967, guid: e3f73892ffa1a9149ab51161cbc6b809,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3f73892ffa1a9149ab51161cbc6b809, type: 3}

@@ -24,8 +24,8 @@ MonoBehaviour:
   movementDelay: 0
   primaryTurretCount: 2
   secondaryTurretCount: 3
-  startInitialAngle: 30
-  endInitialAngle: 30
+  startInitialAngle: 50
+  endInitialAngle: 50
   curveAngle:
   - 180
   startFinalAngle: 120

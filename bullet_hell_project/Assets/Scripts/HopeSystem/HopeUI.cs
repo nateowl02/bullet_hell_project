@@ -9,8 +9,8 @@ public class HopeUI : MonoBehaviour
     public Image despairMeter;
     public TextMeshProUGUI hopeValue;
     public TextMeshProUGUI despairValue;
-    public float maxHope = 150;
-    [Range(0, 150)]
+    public float maxHope = 200;
+    [Range(0, 200)]
     public float currentHope;
 
     float fillAmount;
