@@ -48,8 +48,8 @@ public class WeaponController : MonoBehaviour
         {
             if (weaponType.isLocking)
             {
-                Vector3 targetDirection = EmpireanMath.GetTargetDirection(transform.position, Vector3.zero, weaponType.damageTag, true);
-                aimAdjustment = EmpireanMath.GetAngleFromPoint(targetDirection.x, targetDirection.y);
+                Vector3 targetDirection = MathUtils.GetTargetDirection(transform.position, Vector3.zero, weaponType.damageTag, true);
+                aimAdjustment = MathUtils.GetAngleFromPoint(targetDirection.x, targetDirection.y);
 
             }
             else
@@ -58,22 +58,22 @@ public class WeaponController : MonoBehaviour
             progress = ((float)i * stepCount) / (float)weaponType.secondaryTurretCount;
 
 
-            float[] startAngles = EmpireanMath.GetAngles(
+            float[] startAngles = MathUtils.GetAngles(
                     weaponType.primaryTurretCount,
                     Mathf.Lerp(weaponType.startSpread, weaponType.endSpread, progress),
                     Mathf.Lerp(weaponType.startInitialAngle, weaponType.endInitialAngle, progress),
                     aimAdjustment
                 );
 
-            float[] endAngles = EmpireanMath.GetAngles(
+            float[] endAngles = MathUtils.GetAngles(
                     weaponType.primaryTurretCount,
                     Mathf.Lerp(weaponType.startSpread, weaponType.endSpread, progress),
                     Mathf.Lerp(weaponType.startFinalAngle, weaponType.endFinalAngle, progress),
                     aimAdjustment
                 );
 
-            float temp_offsetX = EmpireanMath.GetStartingOffset(weaponType.primaryTurretCount, weaponType.offsetX);
-            float temp_offsetY = EmpireanMath.GetStartingOffset(weaponType.primaryTurretCount, weaponType.offsetY);
+            float temp_offsetX = MathUtils.GetStartingOffset(weaponType.primaryTurretCount, weaponType.offsetX);
+            float temp_offsetY = MathUtils.GetStartingOffset(weaponType.primaryTurretCount, weaponType.offsetY);
 
             temp_offsetX = weaponType.isInverted ? temp_offsetX * -1 : temp_offsetX;
             temp_offsetY = weaponType.isInverted ? temp_offsetY * -1 : temp_offsetY;
@@ -81,10 +81,11 @@ public class WeaponController : MonoBehaviour
             for (int j = 0; j < weaponType.primaryTurretCount; j++)
             {
                 startAngles[j] = weaponType.isInverted ? startAngles[j] + 180 : startAngles[j];
+                endAngles[j] = weaponType.isInverted ? endAngles[j] + 180 : endAngles[j];
 
                 Vector3 position = transform.position + new Vector3(temp_offsetX, temp_offsetY, 0);
-                Vector3 initialDirection = EmpireanMath.GetDirectionFromAngle(startAngles[j]).normalized;
-                Vector3 finalDirection = EmpireanMath.GetDirectionFromAngle(endAngles[j]).normalized;
+                Vector3 initialDirection = MathUtils.GetDirectionFromAngle(startAngles[j]).normalized;
+                Vector3 finalDirection = MathUtils.GetDirectionFromAngle(endAngles[j]).normalized;
 
                 unitPolarity = gameObject.GetComponentInParent<PolaritySystem>();
 
@@ -125,7 +126,7 @@ public class WeaponController : MonoBehaviour
                 List<Vector3> curve = new List<Vector3>();
                 for (int m = 0; m < weaponType.curveAngle.Length; m++)
                 {
-                    curve.Add(EmpireanMath.GetDirectionFromAngle(weaponType.curveAngle[m]).normalized);
+                    curve.Add(MathUtils.GetDirectionFromAngle(weaponType.isInverted ? weaponType.curveAngle[m] + 180 : weaponType.curveAngle[m]).normalized);
                 }
                 projectile.curve = curve.ToArray();
 

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Spawnable : MonoBehaviour
 {
-    public Unit emitter;
-    public Unit pulser;
-    public Unit splitter;
-    public Unit warper;
+    public UnitOld emitter;
+    public UnitOld pulser;
+    public UnitOld splitter;
+    public UnitOld warper;
 }

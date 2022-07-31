@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Unit))]
+[RequireComponent(typeof(UnitOld))]
 public class UnitBehavior : MonoBehaviour
 {
     public enum BehaviorTypes
@@ -15,13 +15,13 @@ public class UnitBehavior : MonoBehaviour
     public float delay;
     public bool isEscaping = false;
     //
-    Unit unit;
+    UnitOld unit;
     float pause;
     //
 
     void Start()
     {
-        unit = GetComponent<Unit>();
+        unit = GetComponent<UnitOld>();
         StartCoroutine("MoveToLocation");
     }
 

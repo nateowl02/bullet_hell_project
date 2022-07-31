@@ -1,20 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Unit))]
+[RequireComponent(typeof(UnitOld))]
 public class ClampUnit : MonoBehaviour
 {
 
     public float heightPad;
     public float widthPad;
-    //
+
     string unitTag;
     float screenHeight;
     float screenWidth;
-    //
 
     void Start()
     {
-        unitTag = GetComponent<Unit>().GetUnitTag();
+        if (TryGetComponent(out UnitOld unit))
+        {
+            unitTag = unit.tag;
+            print(unit.tag);
+        }
+        
         screenWidth = GameRules.screenWidth + widthPad;
         screenHeight = GameRules.screenHeight + heightPad;
     }

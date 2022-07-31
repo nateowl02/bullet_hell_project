@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa0567c15fc82a44957808ff496604d, type: 3}
+  m_Name: Spread_Right_1
+  m_EditorClassIdentifier: 
+  normalMissile: {fileID: 6612458835711573515, guid: 6a1cb0cbdc58ede4cbb7430c995e0ec5,
+    type: 3}
+  hope: {fileID: 6612458835711573515, guid: 183e678875dbf144493953359945e32f, type: 3}
+  despair: {fileID: 6612458835711573515, guid: 0ffb48425a4acf142920ddcfcfea1706, type: 3}
+  damage: 1
+  damageTag: Enemy
+  maxRange: 15
+  isPiercing: 0
+  isPolarized: 1
+  movementDelay: 0
+  primaryTurretCount: 2
+  secondaryTurretCount: 3
+  startInitialAngle: 70
+  endInitialAngle: 70
+  curveAngle:
+  - 90
+  - 90
+  - 90
+  startFinalAngle: 70
+  endFinalAngle: 70
+  startSpread: 0
+  endSpread: 0
+  startSpeed: 7
+  endSpeed: 7
+  initialDelay: 0
+  primaryRateOfFire: 1
+  secondaryRateOfFire: 0.1
+  offsetX: 0.5
+  offsetY: 0
+  isInverted: 0
+  isLocking: 0
+  isCycling: 0
+  homingDelay: 1000
+  homingInterval: 1000
+  homingDistance: 1000

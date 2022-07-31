@@ -76,7 +76,7 @@ public class Projectile : MonoBehaviour
             
             if (isPolarized)
             {
-                Unit unit = other.GetComponentInParent<Unit>();
+                UnitOld unit = other.GetComponentInParent<UnitOld>();
                 PolaritySystem polarity = unit.GetComponent<PolaritySystem>();
                 
                 if (tagDamage == "Enemy")
@@ -98,7 +98,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                Unit unit = other.GetComponent<Unit>();
+                UnitOld unit = other.GetComponent<UnitOld>();
                 if (unit != null) unit.Damage(damage);
             }
             if (!isPiercing) Destroy(gameObject);
@@ -131,19 +131,19 @@ public class Projectile : MonoBehaviour
         while (homingCurrentDistance < homingDistance)
         {
             homingCurrentDistance += currentSpeed * Time.deltaTime;
-            Vector3 targetDirection = EmpireanMath.GetTargetDirection(transform.position, direction, tagDamage, true);
+            Vector3 targetDirection = MathUtils.GetTargetDirection(transform.position, direction, tagDamage, true);
             direction = Vector3.Lerp(direction, targetDirection, homingCurrentDistance / homingDistance);
             AdjustRotation();
             yield return new WaitForSeconds(homingInterval);
         }
         
-        direction = EmpireanMath.GetTargetDirection(transform.position, direction, tagDamage, true);
+        direction = MathUtils.GetTargetDirection(transform.position, direction, tagDamage, true);
         AdjustRotation();
     }
 
     private void AdjustRotation()
     {
         rotation = 180;
-        rotation = rotation - EmpireanMath.GetAngleFromPoint(direction.x, direction.y);
+        rotation = rotation - MathUtils.GetAngleFromPoint(direction.x, direction.y);
     }
 }

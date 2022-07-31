@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapon", menuName = "Weapon")]
+[CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
 public class Weapon : ScriptableObject
 {
     [Header("Missile Art")]

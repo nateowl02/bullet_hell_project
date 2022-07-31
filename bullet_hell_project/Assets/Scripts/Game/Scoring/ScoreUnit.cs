@@ -1,18 +1,18 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Unit))]
+[RequireComponent(typeof(UnitOld))]
 public class ScoreUnit : MonoBehaviour
 {
     public int score = 50;
     //
-    Unit unit;
+    UnitOld unit;
     ScoreUI scoreUI;
     
     //
 
     void Start()
     {
-        unit = GetComponent<Unit>();
+        unit = GetComponent<UnitOld>();
         unit.OnDeath += IncreaseScore;
         scoreUI = FindObjectOfType<ScoreUI>();
     }

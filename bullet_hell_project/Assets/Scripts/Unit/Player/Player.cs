@@ -1,18 +1,44 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-[RequireComponent(typeof(Unit))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IUnit
 {
-    Unit unit;
+    public static float playerHealth;
 
-    void Start()
+    [SerializeField]
+    private UnitProperties unitProperties;
+    public UnitProperties UnitProperties { get; set; }
+    public PlayerController playerController;
+    //
+    protected float currentHealth;
+    protected bool isDead = false;
+    //
+    public static List<Player> player = new List<Player>();
+
+    void Awake()
     {
-        unit = GetComponent<Unit>();
+        UnitProperties = unitProperties;
+        currentHealth = UnitProperties.healthMax;
+        player.Add(this);
     }
 
-    public void Move(Vector2 velocity)
+    void Update()
     {
-        transform.Translate((velocity * unit.speed) * Time.deltaTime);
+        if (currentHealth <= 0.0f && !isDead)
+        {
+            isDead = true;
+            Destroy(gameObject);
+        }
+
+        Vector3 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 velocity = direction * unitProperties.speed * Time.deltaTime;
+        playerController.Move(velocity);
     }
+
+    public void TakeDamage(float damage)
+    {
+        if (UnitProperties.isDestructible) currentHealth -= damage;
+    }
+
 
 }
