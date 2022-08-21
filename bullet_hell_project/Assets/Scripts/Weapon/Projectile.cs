@@ -37,9 +37,11 @@ public class Projectile : MonoBehaviour
     // counters
     float homingCounter;
     float rangeCounter;
+    float rangeProgress;
     float movementCounter;
     float currentSpeed;
     float homingCurrentDistance;
+    
 
     private void Start()
     {
@@ -51,13 +53,14 @@ public class Projectile : MonoBehaviour
     void FixedUpdate()
     {
         if (Time.time <= movementCounter) return;
+        rangeProgress = rangeCounter / rangeMax;
         Move();
     }
     
     void Move()
     {
         model.rotation = Quaternion.Euler(0, 0, rotation + 180);
-        currentSpeed = Mathf.Lerp(speedStart, speedEnd, rangeCounter / rangeMax);
+        currentSpeed = Mathf.Lerp(speedStart, speedEnd, rangeProgress);
         transform.Translate(direction * currentSpeed * Time.deltaTime);
         if (!CheckRange()) Destroy(gameObject);
         
@@ -65,7 +68,7 @@ public class Projectile : MonoBehaviour
 
     bool CheckRange()
     {
-        rangeCounter += (Mathf.Lerp(speedStart, speedEnd, rangeCounter / rangeMax) * Time.deltaTime);
+        rangeCounter += (Mathf.Lerp(speedStart, speedEnd, rangeProgress) * Time.deltaTime);
         return rangeMax > rangeCounter;
     }
 
@@ -76,30 +79,30 @@ public class Projectile : MonoBehaviour
             
             if (isPolarized)
             {
-                UnitOld unit = other.GetComponentInParent<UnitOld>();
+                Unit unit = other.GetComponentInParent<Unit>();
                 PolaritySystem polarity = unit.GetComponent<PolaritySystem>();
                 
                 if (tagDamage == "Enemy")
                 {
 
                     if (polarity.currentPolarity != currentPolarity)
-                        unit.Damage(damage * PolaritySystem.polarityDamageFactor);
+                        unit.TakeDamage(damage * PolaritySystem.polarityDamageFactor);
                     else
-                        unit.Damage(damage);
+                        unit.TakeDamage(damage);
                 }
                 
                 if (tagDamage == "Player")
                 {
-                    if (polarity.currentPolarity != currentPolarity) unit.Damage(damage);
-                    else GameObject.FindObjectOfType<HopeUI>().OnAbsorb(currentPolarity);
+                    if (polarity.currentPolarity != currentPolarity) unit.TakeDamage(damage);
+                    else FindObjectOfType<HopeUI>().OnAbsorb(currentPolarity);
                     
                 }
                 
             }
             else
             {
-                UnitOld unit = other.GetComponent<UnitOld>();
-                if (unit != null) unit.Damage(damage);
+                IUnit unit = other.GetComponent<IUnit>();
+                if (unit != null) unit.TakeDamage(damage);
             }
             if (!isPiercing) Destroy(gameObject);
         }
@@ -117,11 +120,11 @@ public class Projectile : MonoBehaviour
 
             for (int i = 0; i < curve.Length; i++)
             {
-                temp_point = Vector3.Lerp(start_point, curve[i], rangeCounter / rangeMax);
+                temp_point = Vector3.Lerp(start_point, curve[i], rangeProgress);
                 start_point = temp_point;
             }
 
-            direction = Vector3.Lerp(start_point, end_point, rangeCounter / rangeMax);
+            direction = Vector3.Lerp(start_point, end_point, rangeProgress);
             AdjustRotation();
             
             yield return null;

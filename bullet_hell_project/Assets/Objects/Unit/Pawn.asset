@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c234d73763faa41bbbcb9ec886fee3, type: 3}
   m_Name: Pawn
   m_EditorClassIdentifier: 
-  healthMax: 0
-  speed: 0
-  collisionDamage: 0
-  collisionDamageTag: 
-  isDestructible: 0
+  healthMax: 5
+  speed: 2
+  collisionDamage: 1
+  collisionDamageTag: Player
+  isDestructible: 1
   heightPad: 0
   widthPad: 0
